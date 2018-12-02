@@ -63,9 +63,9 @@ for j=1:NoOfConditions
     RrAllData=[DROPS(placeDrops).Rnorm];
     [AverageValues(j).meanRho,AverageValues(j).lowerLineRho,AverageValues(j).upperLineRho,AverageValues(j).meanRrho] = meanGaussianMM(RrAllData,RhoAllData, 1);
 end
-close all
+% close all
 
-h=figure (1);
+Fig=figure;
 % Colorsjet=jet(120);
 
 if (NoOfConditions>1)
@@ -114,11 +114,11 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs R.fig'));
-saveas(figure (1),fullfile(save_to_file,'rho vs R.tif'));
-saveas(figure (1),[save_to_file,'rho vs R'],'epsc');
+saveas(Fig,fullfile(save_to_file,'rho vs R.tif'));
+saveas(Fig,[save_to_file,'rho vs R'],'epsc');
 
-
-h=figure (5);
+close(Fig);
+% Fig=figure;
 
 for i=1:length(DROPS)
     i
@@ -145,9 +145,9 @@ for j=1:NoOfConditions
     RrAllData=[DROPS(placeDrops).RnormByRdrop];
     [AverageValues(j).meanRho2,AverageValues(j).lowerLineRho2,AverageValues(j).upperLineRho2,AverageValues(j).meanRrho2] = meanGaussianMMv2(RrAllData,RhoAllData, 0.04,0.01);
 end
-close all
+% close(Fig);
 
-h=figure (5);
+Fig=figure;
 
 if (NoOfConditions>1)
     Jinitial=2;
@@ -192,10 +192,10 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs r_Rdrop.fig'));
-saveas(figure (5),fullfile(save_to_file,'rho vs r_Rdrop.tif'));
-saveas(figure (5),[save_to_file,'rho vs r_Rdrop'],'epsc');
+saveas(Fig,fullfile(save_to_file,'rho vs r_Rdrop.tif'));
+saveas(Fig,[save_to_file,'rho vs r_Rdrop'],'epsc');
 
-
+close(Fig)
 
 %% (2) DivJ(Rho)
 
@@ -209,7 +209,7 @@ for j=1:NoOfConditions
     NormRhoForDivJAllData=[DROPS(placeDrops).NormRhoForDivJ];
     NormDivJAllData=[DROPS(placeDrops).NormDivJ];
     [AverageValues(j).MeanDivJ,AverageValues(j).lowerLineMeanDivJ,AverageValues(j).upperLineMeanDivJ,AverageValues(j).MeanRhoForDivJ] = meanGaussianMMv2(NormRhoForDivJAllData,NormDivJAllData,0.05,0.05);
-    close all
+%     close all
     
     %     %%%% For mDia remove rho>0.8
     %     if (j==2)
@@ -229,7 +229,7 @@ for j=1:NoOfConditions
 end
 
 %%%%%%Plot
-h=figure (2);
+Fig=figure;
 
 if (NoOfConditions>1)
     Jinitial=2;
@@ -288,9 +288,10 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'divJ.fig'));
-saveas(figure (2),fullfile(save_to_file,'divJ.tif'));
-saveas(figure (2),[save_to_file,'divJ'],'epsc');
+saveas(Fig,fullfile(save_to_file,'divJ.tif'));
+saveas(Fig,[save_to_file,'divJ'],'epsc');
 
+close(Fig)
 %% (3) DivJ(R)
 
 for i=1:length(DROPS)
@@ -312,10 +313,10 @@ for j=1:NoOfConditions
 %     AverageValues(j).upperLineMeanDivJvsR(N_remove)=[];
 %     AverageValues(j).MeanR_ForDivJ(N_remove)=[];
 end
-close all
+% close all
 
 %%%%%%Plot
-h=figure (3);
+Fig=figure;
 
 if (NoOfConditions>1)
     Jinitial=2;
@@ -365,10 +366,10 @@ set(gcf,'position',[7 7 5 4])
 % set(gca, 'YTick', [ -1 0 1 ])
 
 savefig(fullfile(save_to_file,'divJ vs r.fig'));
-saveas(figure (3),fullfile(save_to_file,'divJ vs r.tif'));
-saveas(figure (3),[save_to_file,'divJ vs r'],'epsc');
+saveas(Fig,fullfile(save_to_file,'divJ vs r.tif'));
+saveas(Fig,[save_to_file,'divJ vs r'],'epsc');
 
-
+close(Fig)
 
 %% Div v as a function of R
 
@@ -391,10 +392,10 @@ for j=1:NoOfConditions
 %     AverageValues(j).upperLineMeanDivJvsR(N_remove)=[];
 %     AverageValues(j).MeanR_ForDivJ(N_remove)=[];
 end
-close all
+% close all
 
 %%%%%%Plot
-h=figure (6);
+Fig=figure;
 
 % if (NoOfConditions>1)
 %     Jinitial=2;
@@ -460,10 +461,10 @@ set(gcf,'position',[7 7 20 20])
 % set(gca, 'YTick', [ -1 0 1 ])
 
 savefig(fullfile(save_to_file,'Div V vs r.fig'));
-saveas(figure (6),fullfile(save_to_file,'Div V vs r.tif'));
-saveas(figure (6),[save_to_file,'Div V vs r'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Div V vs r.tif'));
+saveas(Fig,[save_to_file,'Div V vs r'],'epsc');
 
-
+close(Fig);
 
 %% Div V as a function of rho
 
@@ -480,10 +481,10 @@ for j=1:NoOfConditions
 %     AverageValues(j).upperLineMeanDivJvsR(N_remove)=[];
 %     AverageValues(j).MeanR_ForDivJ(N_remove)=[];
 end
-close all
+% close all
 
 %%%%%%Plot
-h=figure (7);
+Fig=figure;
 
 if (NoOfConditions>1)
     Jinitial=2;
@@ -527,13 +528,13 @@ set(gcf,'position',[7 7 5 4])
 % set(gca, 'YTick', [ -1 0 1 ])
 
 savefig(fullfile(save_to_file,'Div V vs rho.fig'));
-saveas(figure (7),fullfile(save_to_file,'Div V vs rho.tif'));
-saveas(figure (7),[save_to_file,'Div V vs rho'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Div V vs rho.tif'));
+saveas(Fig,[save_to_file,'Div V vs rho'],'epsc');
 
-
+close(Fig);
 %% (4) DivJ4piR^2(R)
 
-h=figure(4);
+Fig=figure;
 
 for i=1:length(DROPS)
     A=(DROPS(i).Div_Jr)*4*pi.*(DROPS(i).Div_Jr_Rrho(1:end-1)).^2;
@@ -555,12 +556,12 @@ xlabel('r[\mum]','FontSize',10)
 ylabel('div(J)4piR^2','FontSize',10)
 
 savefig(fullfile(save_to_file,'divJ4piR2 vs r.fig'));
-saveas(figure (4),fullfile(save_to_file,'divJdivJ4piR2 vs r.tif'));
-saveas(figure (4),[save_to_file,'divJdivJ4piR2 vs r'],'epsc');
+saveas(Fig,fullfile(save_to_file,'divJdivJ4piR2 vs r.tif'));
+saveas(Fig,fullfile(save_to_file,'divJdivJ4piR2 vs r'),'epsc');
 
 save(fullfile(save_to_file,'DROPS.mat'),'DROPS')
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues')
-
+close(Fig)
 end
 
 

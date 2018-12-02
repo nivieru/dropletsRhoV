@@ -175,7 +175,7 @@ for j=1:NoOfConditions
     AverageValues(j).xval2(N_remove)=[];
     
     %%%% Try to do secound itration
-    close 
+%     close 
     AVGy=AverageValues(j).meany2;
     AVGx=AverageValues(j).xval2;
     
@@ -308,7 +308,7 @@ end
 
 %%%% Plot the figure
 % close all
-figure (1)
+Fig = figure;
 Colorsjet=jet(120);
 
 if (NoOfConditions>1)
@@ -373,8 +373,8 @@ set(gcf,'position',[7 7 5 4])
 
 
 savefig(fullfile(save_to_file,'Vr vs R.fig'));
-saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
-saveas(figure (1),fullfile(save_to_file,'Vr vs R'),'epsc');
+saveas(Fig,fullfile(save_to_file,'Vr vs R.tif'));
+saveas(Fig,fullfile(save_to_file,'Vr vs R'),'epsc');
 
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 
@@ -382,5 +382,5 @@ DROPSafterVtranslation=DROPS;
 
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 save(fullfile(save_to_file,'DROPSafterVtranslation.mat'),'DROPSafterVtranslation');
-
+close(Fig);
 end

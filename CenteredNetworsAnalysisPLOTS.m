@@ -232,7 +232,7 @@ if plotFlags(3)
    save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
    PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file,XtranslationByLinearFit)
 
-   DROPSforRho=GenerateDropsStractureToKKforGUI(directory,filename,DropsForPlotForRho);
+   DROPSforRho=GenerateDropsStractureToKKforGUI(filename,DropsForPlotForRho);
    save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
    DROPSafterVtranslation=importdata(fullfile(save_to_file,'DROPSafterVtranslation.mat'));
    PlotDiffConditionsToKK_DivJ_AVGvalues(DROPSforRho,DROPSafterVtranslation,save_to_file)

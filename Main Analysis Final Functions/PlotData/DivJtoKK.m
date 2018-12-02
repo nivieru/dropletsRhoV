@@ -158,7 +158,7 @@ TurnoverRate=pp(1);
 
 %%%% Plot and save DivJ and its linear fit
 % close all
-h=figure (1)
+Fig=figure;
 plot(RhoForFit,DivJForFit,'b')
 hold on
 plot(RhoForFit,Smooth,'r')
@@ -192,7 +192,7 @@ save(fullfile(ROI_folder,'FinalVectors\ContractionRate.mat'),'ContractionRate')
 save(fullfile(ROI_folder,'FinalVectors\ForceBalanceEq.mat'),'ForceBalanceEq')
 save(fullfile(ROI_folder,'FinalVectors\DivVvsRslope.mat'),'DivVvsRslope')
 
-close all
+close(Fig);
 
 
 save(fullfile(ROI_folder,'FinalVectors\LinearFitDivJ.mat'),'LinearFitDivJ')

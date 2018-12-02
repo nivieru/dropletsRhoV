@@ -280,8 +280,8 @@ for j=1:NoOfConditions
     
     
 end
-close all
-figure (1)
+% close all
+Fig = figure;
 
 Jinitial=1;
  for j=Jinitial:NoOfConditions
@@ -312,8 +312,8 @@ ylim([ -35 0])
 xlim([ 0 35])
 
 savefig(fullfile(save_to_file,'Vr vs R.fig'));
-saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
-saveas(figure (1),[save_to_file,'Vr vs R'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Vr vs R.tif'));
+saveas(Fig,[save_to_file,'Vr vs R'],'epsc');
 
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 
@@ -322,4 +322,5 @@ DROPSafterVtranslation=DROPS;
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 save(fullfile(save_to_file,'DROPSafterVtranslation.mat'),'DROPSafterVtranslation');
 
+close(Fig);
 end

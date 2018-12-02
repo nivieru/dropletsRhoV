@@ -53,10 +53,10 @@ for j=1:NoOfConditions
     AverageValues(j).color=DROPS(placeDrops(1)).Color;
     [AverageValues(j).meanRho,AverageValues(j).lowerLineRho,AverageValues(j).upperLineRho,AverageValues(j).meanRrho] = meanGaussianMM(RrAllData,RhoAllData, 1);
 end
-close all
+% close all
 
 
-h=figure (1);
+Fig=figure;
 Jinitial=1;
 
 for j=Jinitial:NoOfConditions
@@ -85,9 +85,10 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs R.fig'));
-saveas(figure (1),fullfile(save_to_file,'rho vs R.tif'));
-saveas(figure (1),[save_to_file,'rho vs R'],'epsc');
+saveas(Fig,fullfile(save_to_file,'rho vs R.tif'));
+saveas(Fig,[save_to_file,'rho vs R'],'epsc');
 
+close(Fig);
 
 %% (2) DivJ(Rho)
 
@@ -101,7 +102,7 @@ for j=1:NoOfConditions
     NormRhoForDivJAllData=[DROPS(placeDrops).NormRhoForDivJ];
     NormDivJAllData=[DROPS(placeDrops).NormDivJ];
     [AverageValues(j).MeanDivJ,AverageValues(j).lowerLineMeanDivJ,AverageValues(j).upperLineMeanDivJ,AverageValues(j).MeanRhoForDivJ] = meanGaussianMMv2(NormRhoForDivJAllData,NormDivJAllData,0.05,0.05);
-    close all
+%     close all
     
     %     %%%% For mDia remove rho>0.8
     %     if (j==2)
@@ -121,7 +122,7 @@ for j=1:NoOfConditions
 end
 
 %%%%%%Plot
-h=figure (2);
+Fig=figure;
 Jinitial=1;
 
 for j=Jinitial:NoOfConditions
@@ -150,10 +151,10 @@ xlabel('Normalized \rho [a.u]','FontSize',10)
 ylabel('div(J) [a.u]','FontSize',10)
 
 savefig(fullfile(save_to_file,'divJ AVG values.fig'));
-saveas(figure (2),fullfile(save_to_file,'divJ AVG values.tif'));
-saveas(figure (2),[save_to_file,'divJ AVG values'],'epsc');
+saveas(Fig,fullfile(save_to_file,'divJ AVG values.tif'));
+saveas(Fig,[save_to_file,'divJ AVG values'],'epsc');
 
-
+close(Fig);
 
 %% Div v as a function of R
 
@@ -169,10 +170,10 @@ for j=1:NoOfConditions
     [AverageValues(j).MeanForceBalanceEqVsR,AverageValues(j).lowerLineMeanForceBalanceEqVsR,AverageValues(j).upperLineMeanForceBalanceEqVsR,AverageValues(j).MeanR_ForForceBalanceEq] = meanGaussianMM(NormRnormForDivJAllData,ForceBalanceEqAllData, 1);
 
 end
-close all
+% close all
 
 %%%%%%Plot
-h=figure (3);
+Fig=figure;
 
 Jinitial=1;
 for j=Jinitial:NoOfConditions
@@ -202,10 +203,10 @@ set(gcf,'position',[7 7 5 4])
 % set(gca, 'YTick', [ -1 0 1 ])
 
 savefig(fullfile(save_to_file,'Div V vs r.fig'));
-saveas(figure (3),fullfile(save_to_file,'Div V vs r.tif'));
-saveas(figure (3),[save_to_file,'Div V vs r'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Div V vs r.tif'));
+saveas(Fig,[save_to_file,'Div V vs r'],'epsc');
 
-
+close(Fig);
 
 %% Div V as a function of Rho
 
@@ -217,10 +218,10 @@ for j=1:NoOfConditions
     [AverageValues(j).MeanForceBalanceEqVsRho,AverageValues(j).lowerLineMeanForceBalanceEqVsRho,AverageValues(j).upperLineMeanForceBalanceEqVsRho,AverageValues(j).MeanRho_ForForceBalanceEq] =meanGaussianMMv2(Div_Jr_RhoAllData,ForceBalanceEqAllData, 0.05,0.05);
 
 end
-close all
+% close all
 
 %%%%%%Plot
-h=figure (4);
+Fig=figure;
 
 Jinitial=1;
 
@@ -252,10 +253,10 @@ set(gcf,'position',[7 7 5 4])
 ylim([0 5])
 
 savefig(fullfile(save_to_file,'Div V vs rho.fig'));
-saveas(figure (4),fullfile(save_to_file,'Div V vs rho.tif'));
-saveas(figure (4),[save_to_file,'Div V vs rho'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Div V vs rho.tif'));
+saveas(Fig,[save_to_file,'Div V vs rho'],'epsc');
 
-
+close(Fig);
 
 
 
@@ -342,10 +343,10 @@ for j=1:NoOfConditions
     [AverageValues(j).meanRho2,AverageValues(j).lowerLineRho2,AverageValues(j).upperLineRho2,AverageValues(j).meanRrho2] = meanGaussianMMv2(RrAllData,RhoAllData, 0.04,0.01);
 
 end
-close all
+% close all
 
 
-h=figure (6);
+Fig=figure;
 Jinitial=1;
 
 for j=Jinitial:NoOfConditions
@@ -372,14 +373,14 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs r-r0_Rdrop.fig'));
-saveas(figure (6),fullfile(save_to_file,'rho vs r-r0_Rdrop.tif'));
-saveas(figure (6),[save_to_file,'rho vs r-r0_Rdrop'],'epsc');
+saveas(Fig,fullfile(save_to_file,'rho vs r-r0_Rdrop.tif'));
+saveas(Fig,[save_to_file,'rho vs r-r0_Rdrop'],'epsc');
 
 AverageValues2=AverageValues;
 
 save(fullfile(save_to_file,'AverageValues2.mat'),'AverageValues2')
 
-
+close(Fig);
 
 
 
