@@ -108,7 +108,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs R.fig'));
 saveas(figure (1),fullfile(save_to_file,'rho vs R.tif'));
-saveas(figure (1),[save_to_file,'rho vs R'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'rho vs R'),'epsc');
 
 
 h=figure (5);
@@ -184,7 +184,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs r_Rdrop.fig'));
 saveas(figure (5),fullfile(save_to_file,'rho vs r_Rdrop.tif'));
-saveas(figure (5),[save_to_file,'rho vs r_Rdrop'],'epsc');
+saveas(figure (5),fullfile(save_to_file,'rho vs r_Rdrop'),'epsc');
 
 
 
@@ -275,7 +275,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'divJ.fig'));
 saveas(figure (2),fullfile(save_to_file,'divJ.tif'));
-saveas(figure (2),[save_to_file,'divJ'],'epsc');
+saveas(figure (2),fullfile(save_to_file,'divJ'),'epsc');
 
 %% (3) DivJ(R)
 
@@ -351,7 +351,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'divJ vs r.fig'));
 saveas(figure (3),fullfile(save_to_file,'divJ vs r.tif'));
-saveas(figure (3),[save_to_file,'divJ vs r'],'epsc');
+saveas(figure (3),fullfile(save_to_file,'divJ vs r'),'epsc');
 
 
 
@@ -424,7 +424,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'Div V vs r.fig'));
 saveas(figure (6),fullfile(save_to_file,'Div V vs r.tif'));
-saveas(figure (6),[save_to_file,'Div V vs r'],'epsc');
+saveas(figure (6),fullfile(save_to_file,'Div V vs r'),'epsc');
 
 
 
@@ -492,7 +492,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'Div V vs rho.fig'));
 saveas(figure (7),fullfile(save_to_file,'Div V vs rho.tif'));
-saveas(figure (7),[save_to_file,'Div V vs rho'],'epsc');
+saveas(figure (7),fullfile(save_to_file,'Div V vs rho'),'epsc');
 
 
 %% (4) DivJ4piR^2(R)
@@ -520,7 +520,7 @@ ylabel('div(J)4piR^2','FontSize',10)
 
 savefig(fullfile(save_to_file,'divJ4piR2 vs r.fig'));
 saveas(figure (4),fullfile(save_to_file,'divJdivJ4piR2 vs r.tif'));
-saveas(figure (4),[save_to_file,'divJdivJ4piR2 vs r'],'epsc');
+saveas(figure (4),fullfile(save_to_file,'divJdivJ4piR2 vs r'),'epsc');
 
 save(fullfile(save_to_file,'DROPS.mat'),'DROPS')
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues')

@@ -90,7 +90,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'Row data Vr VS r-r0.fig'));
 saveas(figure (1),fullfile(save_to_file,'Row data Vr VS r-r0.tif'));
-saveas(figure (1),[save_to_file,'Row data Vr VS r-r0'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'Row data Vr VS r-r0'),'epsc');
 
 %%%%% DivJ with Linear Fit
 
@@ -118,7 +118,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'DivJ with Linear fit.fig'));
 saveas(figure (2),fullfile(save_to_file,'DivJ with Linear fit.tif'));
-saveas(figure (2),[save_to_file,'DivJ with Linear fit'],'epsc');
+saveas(figure (2),fullfile(save_to_file,'DivJ with Linear fit'),'epsc');
 
 
 

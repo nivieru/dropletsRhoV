@@ -108,6 +108,6 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'norm rho vs R.fig'));
 saveas(figure (1),fullfile(save_to_file,'norm rho vs R.tif'));
-saveas(figure (1),[save_to_file,'norm rho vs R'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'norm rho vs R'),'epsc');
 
 

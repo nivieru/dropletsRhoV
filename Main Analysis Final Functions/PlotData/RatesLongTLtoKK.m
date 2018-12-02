@@ -55,9 +55,9 @@ ax.XAxis.TickValues=[0:10:30];
 xlabel('Time [min]','FontSize',10)
 ylabel('Contraction rate [1/min]','FontSize',10)
 
-savefig(fullfile(save_to_file,'\AVGcontraction rate vs time non norm.fig'));
-saveas(figure (1),fullfile(save_to_file,'\AVGcontraction rate vs time non norm.tif'));
-saveas(figure (1),[save_to_file,'\AVGcontraction rate vs time non norm'],'epsc');
+savefig(fullfile(save_to_file,'AVGcontraction rate vs time non norm.fig'));
+saveas(figure (1),fullfile(save_to_file,'AVGcontraction rate vs time non norm.tif'));
+saveas(figure (1),fullfile(save_to_file,'AVGcontraction rate vs time non norm'),'epsc');
 
 
 
@@ -88,6 +88,6 @@ ylim([0 2])
 xlabel('Time [min]','FontSize',10)
 ylabel('Net turnover rate [1/min]','FontSize',10)
 
-savefig(fullfile(save_to_file,'\AVGturnover rate vs time non norm.fig'));
-saveas(figure (2),fullfile(save_to_file,'\AVGturnover rate vs time non norm.tif'));
-saveas(figure (2),[save_to_file,'\AVturnover  rate vs time non norm'],'epsc');
+savefig(fullfile(save_to_file,'AVGturnover rate vs time non norm.fig'));
+saveas(figure (2),fullfile(save_to_file,'AVGturnover rate vs time non norm.tif'));
+saveas(figure (2),fullfile(save_to_file,'AVturnover  rate vs time non norm'),'epsc');

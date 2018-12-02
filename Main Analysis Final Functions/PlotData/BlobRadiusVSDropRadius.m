@@ -24,9 +24,9 @@ set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
-savefig(fullfile(save_to_file,'\Rblob VS Rdrop .fig'));
-saveas(figure (1),fullfile(save_to_file,'\Rblob VS Rdrop.tif'));
-saveas(figure (1),[save_to_file,'\Rblob VS Rdrop'],'epsc');
+savefig(fullfile(save_to_file,'Rblob VS Rdrop .fig'));
+saveas(figure (1),fullfile(save_to_file,'Rblob VS Rdrop.tif'));
+saveas(figure (1),fullfile(save_to_file,'Rblob VS Rdrop'),'epsc');
 
 
 

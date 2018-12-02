@@ -7,7 +7,7 @@ DROPSforV=importdata(fullfile(FileName,'DROPSforV.mat'));
 DROPSforRho=importdata(fullfile(FileName,'DROPSforRho.mat'));
 
 %%%% only V
-save_to_fileAllV=[save_to_file,'All V\'];
+save_to_fileAllV=fullfile(save_to_file,'All V\');
 mkdir(save_to_fileAllV)
 DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileAllV);
 close all

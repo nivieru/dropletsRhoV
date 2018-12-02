@@ -282,7 +282,7 @@ set(gcf,'position',[7 7 5 3.5])
 
 savefig(fullfile(save_to_file,'Vr vs R.fig'));
 saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
-saveas(figure (1),[save_to_file,'Vr vs R'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'Vr vs R'),'epsc');
 
 % legend(h(index_drops),LEG)
 

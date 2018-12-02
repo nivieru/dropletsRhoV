@@ -320,7 +320,7 @@ set(gcf,'position',[7 7 7 6])
 
 savefig(fullfile(save_to_file,'Vr vs R.fig'));
 saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
-saveas(figure (1),[save_to_file,'Vr vs R'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'Vr vs R'),'epsc');
 
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 

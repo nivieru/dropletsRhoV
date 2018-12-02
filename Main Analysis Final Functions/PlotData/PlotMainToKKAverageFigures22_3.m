@@ -7,7 +7,7 @@ DROPSforV=importdata(fullfile(FileName,'Matlab functions and structures\DROPSfor
 DROPSforRho=importdata(fullfile(FileName,'Matlab functions and structures\DROPSforRho.mat'));
 
 %%%% only V
-save_to_fileV=[save_to_file,'V\'];
+save_to_fileV=fullfile(save_to_file,'V\');
 mkdir(save_to_fileV)
 PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file)
 close all

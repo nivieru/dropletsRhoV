@@ -43,6 +43,6 @@ Linear=pp(1)*x;
 hold on
 plot(x,Linear,'--','Color','k')
 
-savefig(fullfile(save_to_file,'\All data contraction rate vs turnover rate.fig'));
-saveas(figure (1),fullfile(save_to_file,'\All data contraction rate vs turnover rate.tif'));
-saveas(figure (1),[save_to_file,'\All data contraction rate vs turnover rate'],'epsc');
+savefig(fullfile(save_to_file,'All data contraction rate vs turnover rate.fig'));
+saveas(figure (1),fullfile(save_to_file,'All data contraction rate vs turnover rate.tif'));
+saveas(figure (1),fullfile(save_to_file,'All data contraction rate vs turnover rate'),'epsc');

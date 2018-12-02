@@ -143,9 +143,9 @@ set(ax,'FontSize',8)
 xlabel('Actin turnover time[min]','FontSize',10)
 ylabel('Contraction time[min]','FontSize',10)
 
-savefig(fullfile(save_to_file,'\contraction vs turnover.fig'));
-saveas(figure (1),fullfile(save_to_file,'\contraction vs turnover.tif'));
-saveas(figure (1),[save_to_file,'\contraction vs turnover'],'epsc');
+savefig(fullfile(save_to_file,'contraction vs turnover.fig'));
+saveas(figure (1),fullfile(save_to_file,'contraction vs turnover.tif'));
+saveas(figure (1),fullfile(save_to_file,'contraction vs turnover'),'epsc');
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -393,9 +393,9 @@ x=[0:0.1:3];
 hold on
 plot(x,p(1)*x,'LineWidth',1,'Color',[128/255 128/255 128/255])
 
-savefig(fullfile(save_to_file,'\All data contraction vs turnover.fig'));
-saveas(figure (1),fullfile(save_to_file,'\All data contraction vs turnover.tif'));
-saveas(figure (1),[save_to_file,'\All data contraction vs turnover'],'epsc');
+savefig(fullfile(save_to_file,'All data contraction vs turnover.fig'));
+saveas(figure (1),fullfile(save_to_file,'All data contraction vs turnover.tif'));
+saveas(figure (1),fullfile(save_to_file,'All data contraction vs turnover'),'epsc');
 
 
 

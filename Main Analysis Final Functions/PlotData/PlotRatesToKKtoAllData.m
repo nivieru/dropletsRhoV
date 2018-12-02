@@ -26,9 +26,9 @@ for i=1:length(AverageRates)
     errorbarxy(AverageRates(i).AvgTurnoverTime,AverageRates(i).AvgContractionTime,AverageRates(i).STDTurnoverTime, AverageRates(i).STDContractionTime, AverageRates(i).STDTurnoverTime, AverageRates(i).STDContractionTime,'k+' ,'k')
 end
 
-savefig(fullfile(save_to_file,'\All data contraction vs turnover.fig'));
-saveas(figure (1),fullfile(save_to_file,'\All data contraction vs turnover.tif'));
-saveas(figure (1),[save_to_file,'\All data contraction vs turnover'],'epsc');
+savefig(fullfile(save_to_file,'All data contraction vs turnover.fig'));
+saveas(figure (1),fullfile(save_to_file,'All data contraction vs turnover.tif'));
+saveas(figure (1),fullfile(save_to_file,'All data contraction vs turnover'),'epsc');
 
 
 %%%% Plot contraction rate vs turnover rate
@@ -61,7 +61,7 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
 
-savefig(fullfile(save_to_file,'\All data contraction rate vs turnover rate.fig'));
-saveas(figure (2),fullfile(save_to_file,'\All data contraction rate vs turnover rate.tif'));
-saveas(figure (2),[save_to_file,'\All data contraction rate vs turnover rate'],'epsc');
+savefig(fullfile(save_to_file,'All data contraction rate vs turnover rate.fig'));
+saveas(figure (2),fullfile(save_to_file,'All data contraction rate vs turnover rate.tif'));
+saveas(figure (2),fullfile(save_to_file,'All data contraction rate vs turnover rate'),'epsc');
 

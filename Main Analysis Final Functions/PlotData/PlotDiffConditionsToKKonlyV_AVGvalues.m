@@ -313,7 +313,7 @@ xlim([ 0 35])
 
 savefig(fullfile(save_to_file,'Vr vs R.fig'));
 saveas(Fig,fullfile(save_to_file,'Vr vs R.tif'));
-saveas(Fig,[save_to_file,'Vr vs R'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Vr vs R'),'epsc');
 
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 

@@ -82,7 +82,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'Div V vs Rho.fig'));
 saveas(figure (1),fullfile(save_to_file,'Div V vs R.tif'));
-saveas(figure (1),[save_to_file,'Div V vs R'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'Div V vs R'),'epsc');
 
 %%%% Figure 2 - DivV(r) 
 
@@ -100,7 +100,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'Div V vs Rho.fig'));
 saveas(figure (1),fullfile(save_to_file,'Div V vs Rho.tif'));
-saveas(figure (1),[save_to_file,'Div V vs Rho'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'Div V vs Rho'),'epsc');
 
 %%%%
 

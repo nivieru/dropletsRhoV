@@ -63,5 +63,5 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'Div V vs Rho from avg.fig'));
 saveas(figure (1),fullfile(save_to_file,'Div V vs Rho from avg.tif'));
-saveas(figure (1),[save_to_file,'Div V vs Rho from avg'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'Div V vs Rho from avg'),'epsc');
 end

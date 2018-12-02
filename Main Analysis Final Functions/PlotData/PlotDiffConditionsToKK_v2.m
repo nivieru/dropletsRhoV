@@ -131,7 +131,7 @@ box off
 
 savefig(fullfile(save_to_file,'rho vs R.fig'));
 saveas(figure (1),fullfile(save_to_file,'rho vs R.tif'));
-saveas(figure (1),[save_to_file,'rho vs R'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'rho vs R'),'epsc');
 
 
 
@@ -229,7 +229,7 @@ ylabel('div(J) [a.u]','FontSize',10)
 
 savefig(fullfile(save_to_file,'divJ.fig'));
 saveas(figure (2),fullfile(save_to_file,'divJ.tif'));
-saveas(figure (2),[save_to_file,'divJ'],'epsc');
+saveas(figure (2),fullfile(save_to_file,'divJ'),'epsc');
 
 
 
@@ -309,7 +309,7 @@ set(gcf,'position',[7 7 5 3.5])
 
 savefig(fullfile(save_to_file,'divJ vs r.fig'));
 saveas(figure (3),fullfile(save_to_file,'divJ vs r.tif'));
-saveas(figure (3),[save_to_file,'divJ vs r'],'epsc');
+saveas(figure (3),fullfile(save_to_file,'divJ vs r'),'epsc');
 
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues')
 
@@ -341,7 +341,7 @@ set(gcf,'position',[7 7 5 3.5])
 
 savefig(fullfile(save_to_file,'divJ4piR2 vs r.fig'));
 saveas(figure (4),fullfile(save_to_file,'divJdivJ4piR2 vs r.tif'));
-saveas(figure (4),[save_to_file,'divJdivJ4piR2 vs r'],'epsc');
+saveas(figure (4),fullfile(save_to_file,'divJdivJ4piR2 vs r'),'epsc');
 
 save(fullfile(save_to_file,'DROPS.mat'),'DROPS')
 

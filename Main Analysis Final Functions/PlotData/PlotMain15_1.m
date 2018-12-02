@@ -147,7 +147,7 @@ DropsForPlotForRho=DropsForPlotForV;
     close all
     DROPSforV=GenerateDropsStractureToKKforV(directory,filename,DropsForPlotForV);
     save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
-    save_to_fileAllV=[save_to_file,'All V\'];
+    save_to_fileAllV=fullfile(save_to_file,'All V\');
     mkdir(save_to_fileAllV)
 %     DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileAllV);
         

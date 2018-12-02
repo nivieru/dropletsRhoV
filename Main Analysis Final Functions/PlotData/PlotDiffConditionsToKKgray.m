@@ -115,7 +115,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs R.fig'));
 saveas(Fig,fullfile(save_to_file,'rho vs R.tif'));
-saveas(Fig,[save_to_file,'rho vs R'],'epsc');
+saveas(Fig,fullfile(save_to_file,'rho vs R'),'epsc');
 
 close(Fig);
 % Fig=figure;
@@ -193,7 +193,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs r_Rdrop.fig'));
 saveas(Fig,fullfile(save_to_file,'rho vs r_Rdrop.tif'));
-saveas(Fig,[save_to_file,'rho vs r_Rdrop'],'epsc');
+saveas(Fig,fullfile(save_to_file,'rho vs r_Rdrop'),'epsc');
 
 close(Fig)
 
@@ -289,7 +289,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'divJ.fig'));
 saveas(Fig,fullfile(save_to_file,'divJ.tif'));
-saveas(Fig,[save_to_file,'divJ'],'epsc');
+saveas(Fig,fullfile(save_to_file,'divJ'),'epsc');
 
 close(Fig)
 %% (3) DivJ(R)
@@ -367,7 +367,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'divJ vs r.fig'));
 saveas(Fig,fullfile(save_to_file,'divJ vs r.tif'));
-saveas(Fig,[save_to_file,'divJ vs r'],'epsc');
+saveas(Fig,fullfile(save_to_file,'divJ vs r'),'epsc');
 
 close(Fig)
 
@@ -462,7 +462,7 @@ set(gcf,'position',[7 7 20 20])
 
 savefig(fullfile(save_to_file,'Div V vs r.fig'));
 saveas(Fig,fullfile(save_to_file,'Div V vs r.tif'));
-saveas(Fig,[save_to_file,'Div V vs r'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Div V vs r'),'epsc');
 
 close(Fig);
 
@@ -529,7 +529,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'Div V vs rho.fig'));
 saveas(Fig,fullfile(save_to_file,'Div V vs rho.tif'));
-saveas(Fig,[save_to_file,'Div V vs rho'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Div V vs rho'),'epsc');
 
 close(Fig);
 %% (4) DivJ4piR^2(R)

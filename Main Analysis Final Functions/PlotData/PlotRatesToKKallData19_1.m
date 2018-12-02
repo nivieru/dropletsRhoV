@@ -31,9 +31,9 @@ set(gcf,'position',[7 7 5 4])
 
 
 
-savefig(fullfile(save_to_file,'\All data contraction rate vs turnover rate.fig'));
-saveas(figure (1),fullfile(save_to_file,'\All data contraction rate vs turnover rate.tif'));
-saveas(figure (1),[save_to_file,'\All data contraction rate vs turnover rate'],'epsc');
+savefig(fullfile(save_to_file,'All data contraction rate vs turnover rate.fig'));
+saveas(figure (1),fullfile(save_to_file,'All data contraction rate vs turnover rate.tif'));
+saveas(figure (1),fullfile(save_to_file,'All data contraction rate vs turnover rate'),'epsc');
 
 
 

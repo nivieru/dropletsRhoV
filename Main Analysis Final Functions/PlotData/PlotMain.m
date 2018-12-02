@@ -284,7 +284,7 @@ save_to_file=[directory,'\Maya Analysis after GRC\Data Analysis\Main Data figure
 close all
 DROPSforV=GenerateDropsStractureToKKforV(directory,filename,DropsForPlotForV);
 save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
-save_to_fileAllV=[save_to_file,'All V\'];
+save_to_fileAllV=fullfile(save_to_file,'All V\');
 mkdir(save_to_fileAllV)
 DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileAllV);
 close all
@@ -480,7 +480,7 @@ DROPSForPlotForRho=[714:718, 721:728,733:741]; %%% +30mM KCL
 % Data80per1_5uMActA_TPM3_1.rVr=DROPS.Rr;
 % Data80per1_5uMActA_TPM3_1.Jr=DROPS.Jr;
 % save(fullfile(save_to_file,'Data80per1_5uMActA_TPM3_1.mat'),'Data80per1_5uMActA_TPM3_1')
-% save([save_to_file,'Data80per1_5uMActA_TPM3_1.m'],'Data80per1_5uMActA_TPM3_1')
+% save(fullfile(save_to_file,'Data80per1_5uMActA_TPM3_1.m'),'Data80per1_5uMActA_TPM3_1')
 % 
 % 
 % 

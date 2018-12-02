@@ -167,7 +167,7 @@ plot(RhoForFit,LinearFitDivJ,'k')
 % 
 % savefig(fullfile(save_to_file,'DivJ vs rho.fig'));
 % saveas(h,fullfile(save_to_file,'DivJ vs rho.tif'));
-% saveas(h,[save_to_file,'DivJ vs rho'],'epsc');
+% saveas(h,fullfile(save_to_file,'DivJ vs rho'),'epsc');
 
 
 %%%% calculate integrated force balance eq. 1/r^2*(d/dr)*(r^2V)

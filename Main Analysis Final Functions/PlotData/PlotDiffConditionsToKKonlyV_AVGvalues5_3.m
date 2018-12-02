@@ -317,7 +317,7 @@ xlim([ 0 40])
 
 savefig(fullfile(save_to_file,'Vr vs R.fig'));
 saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
-saveas(figure (1),[save_to_file,'Vr vs R'],'epsc');
+saveas(figure (1),fullfile(save_to_file,'Vr vs R'),'epsc');
 
 DROPSafterVtranslation=DROPS;
 

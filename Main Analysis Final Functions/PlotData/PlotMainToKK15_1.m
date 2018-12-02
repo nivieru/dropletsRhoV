@@ -7,7 +7,7 @@ DROPSforV=importdata(fullfile(FileName,'Matlab structures\DROPSforV.mat'));
 DROPSforRho=importdata(fullfile(FileName,'Matlab structures\DROPSforRho.mat'));
 
 %%%% only V
-save_to_fileV=[save_to_file,'V\'];
+save_to_fileV=fullfile(save_to_file,'V\');
 mkdir(save_to_fileV)
 DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileV);
 close all

@@ -86,7 +86,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs R.fig'));
 saveas(Fig,fullfile(save_to_file,'rho vs R.tif'));
-saveas(Fig,[save_to_file,'rho vs R'],'epsc');
+saveas(Fig,fullfile(save_to_file,'rho vs R'),'epsc');
 
 close(Fig);
 
@@ -152,7 +152,7 @@ ylabel('div(J) [a.u]','FontSize',10)
 
 savefig(fullfile(save_to_file,'divJ AVG values.fig'));
 saveas(Fig,fullfile(save_to_file,'divJ AVG values.tif'));
-saveas(Fig,[save_to_file,'divJ AVG values'],'epsc');
+saveas(Fig,fullfile(save_to_file,'divJ AVG values'),'epsc');
 
 close(Fig);
 
@@ -204,7 +204,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'Div V vs r.fig'));
 saveas(Fig,fullfile(save_to_file,'Div V vs r.tif'));
-saveas(Fig,[save_to_file,'Div V vs r'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Div V vs r'),'epsc');
 
 close(Fig);
 
@@ -254,7 +254,7 @@ ylim([0 5])
 
 savefig(fullfile(save_to_file,'Div V vs rho.fig'));
 saveas(Fig,fullfile(save_to_file,'Div V vs rho.tif'));
-saveas(Fig,[save_to_file,'Div V vs rho'],'epsc');
+saveas(Fig,fullfile(save_to_file,'Div V vs rho'),'epsc');
 
 close(Fig);
 
@@ -312,7 +312,7 @@ close(Fig);
 % 
 % savefig(fullfile(save_to_file,'Div V vs non norm rho.fig'));
 % saveas(figure (5),fullfile(save_to_file,'Div V vs non norm rho.tif'));
-% saveas(figure (5),[save_to_file,'Div V vs non norm rho'],'epsc');
+% saveas(figure (5),fullfile(save_to_file,'Div V vs non norm rho'),'epsc');
 
 
 
@@ -374,7 +374,7 @@ set(gcf,'position',[7 7 5 4])
 
 savefig(fullfile(save_to_file,'rho vs r-r0_Rdrop.fig'));
 saveas(Fig,fullfile(save_to_file,'rho vs r-r0_Rdrop.tif'));
-saveas(Fig,[save_to_file,'rho vs r-r0_Rdrop'],'epsc');
+saveas(Fig,fullfile(save_to_file,'rho vs r-r0_Rdrop'),'epsc');
 
 AverageValues2=AverageValues;
 
