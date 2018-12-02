@@ -2,12 +2,12 @@
 %%%% OPTION1 - PLOT ALL WANTED DATA TOGTHER. EACH EXPERIMENT TYPE HAS A DIFFERENT COLOR
 
 function DROPSafterVtranslation=PlotDiffConditionsToKKonlyV_AVGvalues(DROPS,save_to_file,XtranslationByLinearFit)
-Directory='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\';
-rShift=importdata([Directory,'Paper figures 21_3\GeneralFielsForData\rShift.mat']);
-DefineAverageVrange=importdata([Directory,'Paper figures 21_3\GeneralFielsForData\DefineAverageVrange.mat']);
-DefineAverageVrangeTypeOfExp=[DefineAverageVrange.typeOfExp];
-rShiftTypeOfExp=[rShift.typeOfExp];
-rShiftSHIFTS=[rShift.ShiftFinal];
+% Directory='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\';
+% rShift=importdata([Directory,'Paper figures 21_3\GeneralFielsForData\rShift.mat']);
+% DefineAverageVrange=importdata([Directory,'Paper figures 21_3\GeneralFielsForData\DefineAverageVrange.mat']);
+% DefineAverageVrangeTypeOfExp=[DefineAverageVrange.typeOfExp];
+% rShiftTypeOfExp=[rShift.typeOfExp];
+% rShiftSHIFTS=[rShift.ShiftFinal];
 
 
 NremoveNumber=0.6;
@@ -241,12 +241,12 @@ for j=1:NoOfConditions
     AverageValues(j).LinearFit=p(1)*([-5:0.25:AverageValues(j).xval3(1) , AverageValues(j).xval3])'+p(2);
 %     AverageValues(j).Xteanslation=p(2)/p(1);
 
-    if (XtranslationByLinearFit=='yes')
+%     if (XtranslationByLinearFit=='yes')
     AverageValues(j).Xteanslation=p(2)/p(1);
-    else
-    placeShift=find(rShiftTypeOfExp==AverageValues(j).typeOfExp);
-    AverageValues(j).Xteanslation=-rShiftSHIFTS(placeShift);
-    end
+%     else
+%     placeShift=find(rShiftTypeOfExp==AverageValues(j).typeOfExp);
+%     AverageValues(j).Xteanslation=-rShiftSHIFTS(placeShift);
+%     end
     
     
     %%%Save the total traslation for each drop
@@ -259,24 +259,24 @@ for j=1:NoOfConditions
     %%% calculate and save final average V vs R
     AvgV=AverageValues(j).meany3;
     AvgR=AverageValues(j).xval3+AverageValues(j).Xteanslation;
-    placeCondition=find(DefineAverageVrangeTypeOfExp==AverageValues(j).typeOfExp);
+%     placeCondition=find(DefineAverageVrangeTypeOfExp==AverageValues(j).typeOfExp);
     
     %%% Remove average on too little data points
-    MaxRForAverage=DefineAverageVrange(placeCondition).RmaxForAverageV;
+%     MaxRForAverage=DefineAverageVrange(placeCondition).RmaxForAverageV;
     
-    if ( MaxRForAverage=='Rmax')
+%     if ( MaxRForAverage=='Rmax')
     AverageValues(j).meanR=AvgR;
     AverageValues(j).meanV=AvgV;
-    else
-        cutPlaces=find(AvgR>MaxRForAverage);
-        AvgV(cutPlaces)=[];
-        AvgR(cutPlaces)=[];
-        AverageValues(j).lowerLine3(cutPlaces)=[];
-        AverageValues(j).upperLine3(cutPlaces)=[];
-        AverageValues(j).meanR=AvgR;
-        AverageValues(j).meanV=AvgV;
-        
-    end
+%     else
+%         cutPlaces=find(AvgR>MaxRForAverage);
+%         AvgV(cutPlaces)=[];
+%         AvgR(cutPlaces)=[];
+%         AverageValues(j).lowerLine3(cutPlaces)=[];
+%         AverageValues(j).upperLine3(cutPlaces)=[];
+%         AverageValues(j).meanR=AvgR;
+%         AverageValues(j).meanV=AvgV;
+%         
+%     end
     
     
 end

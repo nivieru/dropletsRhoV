@@ -45,7 +45,7 @@ function Main_bulk_3DforGUI(Capture,AnalysisParemeters,index,CorrectionFiles_fol
  for i=1:length(Capture)
     
     Capture_folder=Capture(i).name;
-   
+    if (DropletParameters==1)
     %%%SpreadsTiffs
     Spreads8bitTiffs(Capture_folder);
     
@@ -62,7 +62,6 @@ function Main_bulk_3DforGUI(Capture,AnalysisParemeters,index,CorrectionFiles_fol
     %%% if DropletParameters==2 use the saved droplet parameters from
     %%% previous run 
     
-    if (DropletParameters==1)
     MeasureDropSize(Capture_folder);
     end
     
@@ -71,7 +70,7 @@ function Main_bulk_3DforGUI(Capture,AnalysisParemeters,index,CorrectionFiles_fol
 
 %  for i=1:length(Capture)  
    for i=1:length(Capture)  
-    AnalysisOneMovieforGUI(Capture(i).name,AnalysisParemeters,index,CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag);
+    AnalysisOneMovieforGUI(Capture(i).name,AnalysisParemeters,index,CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag);
     close all
 end
 

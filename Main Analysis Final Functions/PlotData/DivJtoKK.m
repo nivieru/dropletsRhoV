@@ -1,28 +1,28 @@
 
 function DivJtoKK(Capture_folder,ROI_folder)
 
-save_to_file=([ROI_folder,'figures\']);
+save_to_file=(fullfile(ROI_folder,'figures\'));
 mkdir(save_to_file);
-mkdir([ROI_folder,'FinalVectors\']);
+mkdir(fullfile(ROI_folder,'FinalVectors\'));
 
-if (exist([ROI_folder,'VrTimeAverageOnVectorFeild.m']))
-Vr=importdata([ROI_folder,'VrTimeAverageOnVectorFeild.m']);
-Rr=importdata([ROI_folder,'RrTimeAverageOnVectorFeild.m']);  %%%the vector that fits to Vr
+if exist(fullfile(ROI_folder,'VrTimeAverageOnVectorFeild.m'), 'file')
+Vr=importdata(fullfile(ROI_folder,'VrTimeAverageOnVectorFeild.m'));
+Rr=importdata(fullfile(ROI_folder,'RrTimeAverageOnVectorFeild.m'));  %%%the vector that fits to Vr
 else
-Vr=importdata([ROI_folder,'Vr.m']);
-Rr=importdata([ROI_folder,'Rr.m']);  %%%the vector that fits to Vr
+Vr=importdata(fullfile(ROI_folder,'Vr.m'));
+Rr=importdata(fullfile(ROI_folder,'Rr.m'));  %%%the vector that fits to Vr
 end
 
-Rrho=importdata([Capture_folder,'Rho\CorrectedAvgRrho.mat']);
-Rho=importdata([Capture_folder,'Rho\CorrectedAvgRho.mat']);
+Rrho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRrho.mat'));
+Rho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRho.mat'));
 
 % MinDistanceFromEdge=importdata([Capture_folder,'Rho\MinDistanceFromEdge.mat']);
 % MaxDistanceFromEdge=importdata([Capture_folder,'Rho\MaxDistanceFromEdge.mat']);
 
 MinRho=0;
-CHUNK_radius=importdata([Capture_folder,'Analysis parameters\CHUNK_radius.m']); %%%chunk radius
-DROP_radius=importdata([Capture_folder,'Analysis parameters\DROP_radius.m']);
-ACTIN_NETWORK_radius=importdata([Capture_folder,'Analysis parameters\ACTIN_NETWORK_radius.m']);
+CHUNK_radius=importdata(fullfile(Capture_folder,'Analysis parameters\CHUNK_radius.m')); %%%chunk radius
+DROP_radius=importdata(fullfile(Capture_folder,'Analysis parameters\DROP_radius.m'));
+ACTIN_NETWORK_radius=importdata(fullfile(Capture_folder,'Analysis parameters\ACTIN_NETWORK_radius.m'));
 %MaxRr=importdata([Capture_folder,'Analysis parameters\MaxRr.m']);
 
 %%%% cut rho vector at MinDistanceFromEdge (minimum over the distance at
@@ -157,7 +157,7 @@ LinearFitDivJ=pp(1)*RhoForFit+pp(2);
 TurnoverRate=pp(1);
 
 %%%% Plot and save DivJ and its linear fit
-close all
+% close all
 h=figure (1)
 plot(RhoForFit,DivJForFit,'b')
 hold on
@@ -180,29 +180,29 @@ ppDivV=polyfit(Rrho(1:end-1),ForceBalanceEq,1);
 % Linear=ppDivV(1)*Rrho(1:end-1)+ppDivV(2);
 DivVvsRslope=ppDivV(1);
 
-save([Capture_folder,'Rho\RhoMinusMonomers.mat'],'RhoMinusMonomers')
+save(fullfile(Capture_folder,'Rho\RhoMinusMonomers.mat'),'RhoMinusMonomers')
 
-save([ROI_folder,'FinalVectors\Jr.mat'],'Jr')
-save([ROI_folder,'FinalVectors\Div_Jr.mat'],'Div_Jr')
-save([ROI_folder,'FinalVectors\Div_Jr_Rrho.mat'],'Rrho')
-save([ROI_folder,'FinalVectors\Div_Jr_Rho.mat'],'Rho')
-save([ROI_folder,'FinalVectors\MinRr.mat'],'MinRr')
-save([ROI_folder,'FinalVectors\TurnoverRate.mat'],'TurnoverRate')%%% fitted only the negative part
-save([ROI_folder,'FinalVectors\ContractionRate.mat'],'ContractionRate') 
-save([ROI_folder,'FinalVectors\ForceBalanceEq.mat'],'ForceBalanceEq')
-save([ROI_folder,'FinalVectors\DivVvsRslope.mat'],'DivVvsRslope')
+save(fullfile(ROI_folder,'FinalVectors\Jr.mat'),'Jr')
+save(fullfile(ROI_folder,'FinalVectors\Div_Jr.mat'),'Div_Jr')
+save(fullfile(ROI_folder,'FinalVectors\Div_Jr_Rrho.mat'),'Rrho')
+save(fullfile(ROI_folder,'FinalVectors\Div_Jr_Rho.mat'),'Rho')
+save(fullfile(ROI_folder,'FinalVectors\MinRr.mat'),'MinRr')
+save(fullfile(ROI_folder,'FinalVectors\TurnoverRate.mat'),'TurnoverRate')%%% fitted only the negative part
+save(fullfile(ROI_folder,'FinalVectors\ContractionRate.mat'),'ContractionRate') 
+save(fullfile(ROI_folder,'FinalVectors\ForceBalanceEq.mat'),'ForceBalanceEq')
+save(fullfile(ROI_folder,'FinalVectors\DivVvsRslope.mat'),'DivVvsRslope')
 
 close all
 
 
-save([ROI_folder,'FinalVectors\LinearFitDivJ.mat'],'LinearFitDivJ')
-save([ROI_folder,'FinalVectors\LinearFitVr.mat'],'LinearFitVr')
-save([ROI_folder,'FinalVectors\RrLinearFitVr.mat'],'Rrho')
+save(fullfile(ROI_folder,'FinalVectors\LinearFitDivJ.mat'),'LinearFitDivJ')
+save(fullfile(ROI_folder,'FinalVectors\LinearFitVr.mat'),'LinearFitVr')
+save(fullfile(ROI_folder,'FinalVectors\RrLinearFitVr.mat'),'Rrho')
 
-save([ROI_folder,'FinalVectors\RhoForFit.mat'],'RhoForFit')
+save(fullfile(ROI_folder,'FinalVectors\RhoForFit.mat'),'RhoForFit')
 
-save([ROI_folder,'FinalVectors\LinearFitSlope.mat'],'ContractionRate');
-save([ROI_folder,'FinalVectors\LinearFitP2.mat'],'YaxisCrrosing');
+save(fullfile(ROI_folder,'FinalVectors\LinearFitSlope.mat'),'ContractionRate');
+save(fullfile(ROI_folder,'FinalVectors\LinearFitP2.mat'),'YaxisCrrosing');
 
 
 end
