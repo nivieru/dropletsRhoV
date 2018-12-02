@@ -84,8 +84,8 @@ set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
-savefig([save_to_file,'rho vs R.fig']);
-saveas(figure (1),[save_to_file,'rho vs R.tif']);
+savefig(fullfile(save_to_file,'rho vs R.fig'));
+saveas(figure (1),fullfile(save_to_file,'rho vs R.tif'));
 saveas(figure (1),[save_to_file,'rho vs R'],'epsc');
 
 
@@ -149,8 +149,8 @@ set(gcf,'position',[7 7 5 4])
 xlabel('Normalized \rho [a.u]','FontSize',10)
 ylabel('div(J) [a.u]','FontSize',10)
 
-savefig([save_to_file,'divJ AVG values.fig']);
-saveas(figure (2),[save_to_file,'divJ AVG values.tif']);
+savefig(fullfile(save_to_file,'divJ AVG values.fig'));
+saveas(figure (2),fullfile(save_to_file,'divJ AVG values.tif'));
 saveas(figure (2),[save_to_file,'divJ AVG values'],'epsc');
 
 
@@ -201,8 +201,8 @@ set(gcf,'position',[7 7 5 4])
 % set(gca, 'XTick', [ 0 0.5 1 ])
 % set(gca, 'YTick', [ -1 0 1 ])
 
-savefig([save_to_file,'Div V vs r.fig']);
-saveas(figure (3),[save_to_file,'Div V vs r.tif']);
+savefig(fullfile(save_to_file,'Div V vs r.fig'));
+saveas(figure (3),fullfile(save_to_file,'Div V vs r.tif'));
 saveas(figure (3),[save_to_file,'Div V vs r'],'epsc');
 
 
@@ -251,8 +251,8 @@ set(gcf,'position',[7 7 5 4])
 % set(gca, 'YTick', [ -1 0 1 ])
 ylim([0 5])
 
-savefig([save_to_file,'Div V vs rho.fig']);
-saveas(figure (4),[save_to_file,'Div V vs rho.tif']);
+savefig(fullfile(save_to_file,'Div V vs rho.fig'));
+saveas(figure (4),fullfile(save_to_file,'Div V vs rho.tif'));
 saveas(figure (4),[save_to_file,'Div V vs rho'],'epsc');
 
 
@@ -309,8 +309,8 @@ saveas(figure (4),[save_to_file,'Div V vs rho'],'epsc');
 % % set(gca, 'XTick', [ 0 0.5 1 ])
 % % set(gca, 'YTick', [ -1 0 1 ])
 % 
-% savefig([save_to_file,'Div V vs non norm rho.fig']);
-% saveas(figure (5),[save_to_file,'Div V vs non norm rho.tif']);
+% savefig(fullfile(save_to_file,'Div V vs non norm rho.fig'));
+% saveas(figure (5),fullfile(save_to_file,'Div V vs non norm rho.tif'));
 % saveas(figure (5),[save_to_file,'Div V vs non norm rho'],'epsc');
 
 
@@ -371,13 +371,13 @@ set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
-savefig([save_to_file,'rho vs r-r0_Rdrop.fig']);
-saveas(figure (6),[save_to_file,'rho vs r-r0_Rdrop.tif']);
+savefig(fullfile(save_to_file,'rho vs r-r0_Rdrop.fig'));
+saveas(figure (6),fullfile(save_to_file,'rho vs r-r0_Rdrop.tif'));
 saveas(figure (6),[save_to_file,'rho vs r-r0_Rdrop'],'epsc');
 
 AverageValues2=AverageValues;
 
-save([save_to_file,'AverageValues2.mat'],'AverageValues2')
+save(fullfile(save_to_file,'AverageValues2.mat'),'AverageValues2')
 
 
 

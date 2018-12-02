@@ -221,36 +221,36 @@ for i=DropsForPlot
     %%%% to generate DivJ and save it to the relevent file 
     DivJtoKK(Capture_folder,ROI_folder);
     
-    DROPS(j).Rrho=importdata([Capture_folder,'Rho\CorrectedAvgRrho.mat']);
-    DROPS(j).Rho=importdata([Capture_folder,'Rho\CorrectedAvgRho.mat']);
+    DROPS(j).Rrho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRrho.mat'));
+    DROPS(j).Rho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRho.mat'));
     
-    DROPS(j).RhoMinusMonomers=importdata([Capture_folder,'Rho\RhoMinusMonomers.mat']);
-    DROPS(j).MinRr=importdata([ROI_folder,'FinalVectors\MinRr.mat']);
+    DROPS(j).RhoMinusMonomers=importdata(fullfile(Capture_folder,'Rho\RhoMinusMonomers.mat'));
+    DROPS(j).MinRr=importdata(fullfile(ROI_folder,'FinalVectors\MinRr.mat'));
 %     DROPS(j).RhoTForKymograph=importdata([DROPS(j).name,'Rho\RhoT.m']);   
-%     DROPS(j).VectorFieldXtable=importdata([ROI_folder,'xtable.mat']);
-%     DROPS(j).VectorFieldYtable=importdata([ROI_folder,'ytable.mat']);
-%     DROPS(j).VectorFieldVtable_AVG_EX=importdata([ROI_folder,'vtable_AVG_EX3.mat']);
-%     DROPS(j).VectorFieldUtable_AVG_EX=importdata([ROI_folder,'utable_AVG_EX3.mat']);
+%     DROPS(j).VectorFieldXtable=importdata(fullfile(ROI_folder,'xtable.mat'));
+%     DROPS(j).VectorFieldYtable=importdata(fullfile(ROI_folder,'ytable.mat'));
+%     DROPS(j).VectorFieldVtable_AVG_EX=importdata(fullfile(ROI_folder,'vtable_AVG_EX3.mat'));
+%     DROPS(j).VectorFieldUtable_AVG_EX=importdata(fullfile(ROI_folder,'utable_AVG_EX3.mat'));
      
     DROPS(j).Vr=real(importdata([ROI_folder,'Vr.m']));
     DROPS(j).Rr=importdata([ROI_folder,'Rr.m']);
 
 %     %%%% change made only for 10um data
-%     DROPS(j).Vr=importdata([ROI_folder,'FinalVectors\Vr.mat']);
-%     DROPS(j).Rr=importdata([ROI_folder,'FinalVectors\Rr.mat']);
-%     DROPS(j).Rrho=importdata([ROI_folder,'FinalVectors\Rrho.mat']);
+%     DROPS(j).Vr=importdata(fullfile(ROI_folder,'FinalVectors\Vr.mat'));
+%     DROPS(j).Rr=importdata(fullfile(ROI_folder,'FinalVectors\Rr.mat'));
+%     DROPS(j).Rrho=importdata(fullfile(ROI_folder,'FinalVectors\Rrho.mat'));
 %     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 %     
     DROPS(j).RrMinusR0=DROPS(j).Rr-DROPS(j).CHUNK_radius;
-    DROPS(j).Jr=importdata([ROI_folder,'FinalVectors\Jr.mat']);
-    DROPS(j).Div_Jr=importdata([ROI_folder,'FinalVectors\Div_Jr.mat']);
-    DROPS(j).Div_Jr_Rrho=importdata([ROI_folder,'FinalVectors\Div_Jr_Rrho.mat']);
-    DROPS(j).Div_Jr_Rho=importdata([ROI_folder,'FinalVectors\Div_Jr_Rho.mat']);
-    DROPS(j).ForceBalanceEq=importdata([ROI_folder,'FinalVectors\ForceBalanceEq.mat']);
+    DROPS(j).Jr=importdata(fullfile(ROI_folder,'FinalVectors\Jr.mat'));
+    DROPS(j).Div_Jr=importdata(fullfile(ROI_folder,'FinalVectors\Div_Jr.mat'));
+    DROPS(j).Div_Jr_Rrho=importdata(fullfile(ROI_folder,'FinalVectors\Div_Jr_Rrho.mat'));
+    DROPS(j).Div_Jr_Rho=importdata(fullfile(ROI_folder,'FinalVectors\Div_Jr_Rho.mat'));
+    DROPS(j).ForceBalanceEq=importdata(fullfile(ROI_folder,'FinalVectors\ForceBalanceEq.mat'));
 
-    DROPS(j).TurnoverRate=importdata([ROI_folder,'FinalVectors\TurnoverRate.mat']);
-    DROPS(j).ContractionRate=importdata([ROI_folder,'FinalVectors\ContractionRate.mat']);
-    DROPS(j).DivVvsRslope=importdata([ROI_folder,'FinalVectors\DivVvsRslope.mat']);
+    DROPS(j).TurnoverRate=importdata(fullfile(ROI_folder,'FinalVectors\TurnoverRate.mat'));
+    DROPS(j).ContractionRate=importdata(fullfile(ROI_folder,'FinalVectors\ContractionRate.mat'));
+    DROPS(j).DivVvsRslope=importdata(fullfile(ROI_folder,'FinalVectors\DivVvsRslope.mat'));
     
      
     j=j+1;

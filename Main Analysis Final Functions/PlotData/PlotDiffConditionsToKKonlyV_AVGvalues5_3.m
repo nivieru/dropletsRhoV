@@ -315,13 +315,13 @@ ylabel('V[\mum/min]','FontSize',10)
 ylim([ -40 0])
 xlim([ 0 40])
 
-savefig([save_to_file,'Vr vs R.fig']);
-saveas(figure (1),[save_to_file,'Vr vs R.tif']);
+savefig(fullfile(save_to_file,'Vr vs R.fig'));
+saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
 saveas(figure (1),[save_to_file,'Vr vs R'],'epsc');
 
 DROPSafterVtranslation=DROPS;
 
-save([save_to_file,'AverageValues.mat'],'AverageValues');
-save([save_to_file,'DROPSafterVtranslation.mat'],'DROPSafterVtranslation');
+save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
+save(fullfile(save_to_file,'DROPSafterVtranslation.mat'),'DROPSafterVtranslation');
 
 end

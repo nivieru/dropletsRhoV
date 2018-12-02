@@ -146,7 +146,7 @@ DropsForPlotForRho=DropsForPlotForV;
     %%%% only V
     close all
     DROPSforV=GenerateDropsStractureToKKforV(directory,filename,DropsForPlotForV);
-    save([save_to_file,'DROPSforV.mat'],'DROPSforV')
+    save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
     save_to_fileAllV=[save_to_file,'All V\'];
     mkdir(save_to_fileAllV)
 %     DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileAllV);
@@ -161,7 +161,7 @@ DropsForPlotForRho=DropsForPlotForV;
     % %%%% For rambam 4-1 extract
     % DROPSforRho=GenerateDropsStractureToKKforNonCorrectedRho(directory,filename,DropsForPlotForRho);
 
-    save([save_to_file,'DROPSforRho.mat'],'DROPSforRho')
+    save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
 
     %%%%Plot V profile only for the drops in Rho
 %     PlotDiffConditionsToKKonlyV(DROPSforRho,save_to_file);
@@ -173,15 +173,15 @@ DropsForPlotForRho=DropsForPlotForV;
 %%%%%% AVG Figures
 
 DROPSforV=GenerateDropsStractureToKKforV(directory,filename,DropsForPlotForV);
-save([save_to_file,'DROPSforV.mat'],'DROPSforV')
+save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
 PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file,XtranslationByLinearFit)
 
 % PlotDiffConditionsToKKonlyV_AVGvalues5_3(DROPSforV,save_to_file)
 
 
 DROPSforRho=GenerateDropsStractureToKK(directory,filename,DropsForPlotForRho);
-save([save_to_file,'DROPSforRho.mat'],'DROPSforRho')
-DROPSafterVtranslation=importdata([save_to_file,'DROPSafterVtranslation.mat']);
+save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
+DROPSafterVtranslation=importdata(fullfile(save_to_file,'DROPSafterVtranslation.mat'));
 PlotDiffConditionsToKK_DivJ_AVGvalues(DROPSforRho,DROPSafterVtranslation,save_to_file)
 
 % PlotDiffConditionsToKKonlyVFORlongTL(DROPSforRho,save_to_file);

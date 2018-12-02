@@ -44,8 +44,8 @@ Linear=pp(1)*x;
 hold on
 plot(x,Linear,'--','Color','k')
 
-savefig([save_to_file,'\All data contraction rate vs turnover rate.fig']);
-saveas(figure (1),[save_to_file,'\All data contraction rate vs turnover rate.tif']);
+savefig(fullfile(save_to_file,'\All data contraction rate vs turnover rate.fig'));
+saveas(figure (1),fullfile(save_to_file,'\All data contraction rate vs turnover rate.tif'));
 saveas(figure (1),[save_to_file,'\All data contraction rate vs turnover rate'],'epsc');
 
 %% PLOT contraction rate vs ActA concentration
@@ -77,8 +77,8 @@ ax.XAxis.TickValues=[ 0 0.5 1 1.5 ];
 xlabel('Added ActA [\muM]','FontSize',10)
 ylabel('Net contraction rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\contraction rate vs ActA cincetration.fig']);
-saveas(figure (2),[save_to_file,'\contraction rate vs ActA cincetration.tif']);
+savefig(fullfile(save_to_file,'\contraction rate vs ActA cincetration.fig'));
+saveas(figure (2),fullfile(save_to_file,'\contraction rate vs ActA cincetration.tif'));
 saveas(figure (2),[save_to_file,'\contraction rate vs ActA cincetration'],'epsc');
 
 %%% PLOT turnover rate vs ActA concetration
@@ -111,8 +111,8 @@ ylim([0 2])
 xlabel('Added ActA [\muM]','FontSize',10)
 ylabel('Net turnover rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\turnover rate vs ActA cincetration.fig']);
-saveas(figure (4),[save_to_file,'\turnover rate vs ActA cincetration.tif']);
+savefig(fullfile(save_to_file,'\turnover rate vs ActA cincetration.fig'));
+saveas(figure (4),fullfile(save_to_file,'\turnover rate vs ActA cincetration.tif'));
 saveas(figure (4),[save_to_file,'\turnover rate vs ActA cincetration'],'epsc');
 
 
@@ -162,8 +162,8 @@ ylim([0 2])
 xlabel('Time [min]','FontSize',10)
 ylabel('Contraction rate','FontSize',10)
 
-% savefig([save_to_file,'\contraction rate vs time.fig']);
-% saveas(figure (2),[save_to_file,'\contraction rate vs time.tif']);
+% savefig(fullfile(save_to_file,'\contraction rate vs time.fig'));
+% saveas(figure (2),fullfile(save_to_file,'\contraction rate vs time.tif'));
 % saveas(figure (2),[save_to_file,'\contraction rate vs time'],'epsc');
 % 
 
@@ -205,8 +205,8 @@ ylim([0 2])
 xlabel('Time [min]','FontSize',10)
 ylabel('Net turnover rate','FontSize',10)
 
-% savefig([save_to_file,'\turnover rate vs time.fig']);
-% saveas(figure (3),[save_to_file,'\turnover rate vs time.tif']);
+% savefig(fullfile(save_to_file,'\turnover rate vs time.fig'));
+% saveas(figure (3),fullfile(save_to_file,'\turnover rate vs time.tif'));
 % saveas(figure (3),[save_to_file,'\turnover rate vs time'],'epsc');
 
 end
@@ -237,8 +237,8 @@ ax.XAxis.TickValues=[ 0 0.5 1 1.5 ];
 xlabel('Added mDia1 [\muM]','FontSize',10)
 ylabel('Net contraction rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\contraction rate vs mDia1 concetration.fig']);
-saveas(figure (1),[save_to_file,'\contraction rate vs mDia1 concetration.tif']);
+savefig(fullfile(save_to_file,'\contraction rate vs mDia1 concetration.fig'));
+saveas(figure (1),fullfile(save_to_file,'\contraction rate vs mDia1 concetration.tif'));
 saveas(figure (1),[save_to_file,'\contraction rate vs mDia1 concetration'],'epsc');
 
 %%% PLOT turnover rate vs ActA concetration
@@ -268,8 +268,8 @@ ax.XAxis.TickValues=[ 0 0.5 1 1.5 ];
 xlabel('Added mDia1 [\muM]','FontSize',10)
 ylabel('Net turnover rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\turnover rate vs mDia1 concetration.fig']);
-saveas(figure (2),[save_to_file,'\turnover rate vs mDia1 concetration.tif']);
+savefig(fullfile(save_to_file,'\turnover rate vs mDia1 concetration.fig'));
+saveas(figure (2),fullfile(save_to_file,'\turnover rate vs mDia1 concetration.tif'));
 saveas(figure (2),[save_to_file,'\turnover rate vs mDia1 concetration'],'epsc');
 
 
@@ -318,8 +318,8 @@ saveas(figure (2),[save_to_file,'\turnover rate vs mDia1 concetration'],'epsc');
 % xlabel('Added ActA [\muM]','FontSize',10)
 % ylabel('Net turnover rate [1/min]','FontSize',10)
 % 
-% savefig([save_to_file,'\turnover rate vs ActA cincetration.fig']);
-% saveas(figure (4),[save_to_file,'\turnover rate vs ActA cincetration.tif']);
+% savefig(fullfile(save_to_file,'\turnover rate vs ActA cincetration.fig'));
+% saveas(figure (4),fullfile(save_to_file,'\turnover rate vs ActA cincetration.tif'));
 % saveas(figure (4),[save_to_file,'\turnover rate vs ActA cincetration'],'epsc');
 % 
 % %%%%% BOX PLOT
@@ -334,33 +334,33 @@ saveas(figure (2),[save_to_file,'\turnover rate vs mDia1 concetration'],'epsc');
 % 
 % 
 file='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\Paper Figures\row data figures';
-AllDataRates1=importdata([file,'\longTL drop5\rates\AllDataRates.mat']);
+AllDataRates1=importdata(fullfile(file,'\longTL drop5\rates\AllDataRates.mat'));
 
 for i=1:length(AllDataRates1)
 AllDataRates1(i).Color=[250/255 173/255 64/255]; %%Yellow
 end
 
-AllDataRates2=importdata([file,'\longTL drop6\rates\AllDataRates.mat']);
+AllDataRates2=importdata(fullfile(file,'\longTL drop6\rates\AllDataRates.mat'));
 for i=1:length(AllDataRates2)
 AllDataRates2(i).Color=[247/255 102/255 18/255]; %% orange
 end
 
-AllDataRates3=importdata([file,'\longTL drop7\rates\AllDataRates.mat']);
+AllDataRates3=importdata(fullfile(file,'\longTL drop7\rates\AllDataRates.mat'));
 for i=1:length(AllDataRates3)
 AllDataRates3(i).Color=[195/255 105/255 165/255]; %%% magenta
 end
 
-AllDataRates4=importdata([file,'\longTL drop8\rates\AllDataRates.mat']);
+AllDataRates4=importdata(fullfile(file,'\longTL drop8\rates\AllDataRates.mat'));
 for i=1:length(AllDataRates4)
 AllDataRates4(i).Color=[115/255 89/255 145/255]; %% parpel
 end
 
-AllDataRates5=importdata([file,'\longTL drop9\rates\AllDataRates.mat']);
+AllDataRates5=importdata(fullfile(file,'\longTL drop9\rates\AllDataRates.mat'));
 for i=1:length(AllDataRates5)
 AllDataRates5(i).Color=[0 1 1]; %%% cayn 
 end
 
-AllDataRates6=importdata([file,'\rates Long TL\AllDataRates.mat']);
+AllDataRates6=importdata(fullfile(file,'\rates Long TL\AllDataRates.mat'));
 for i=1:length(AllDataRates6)
 AllDataRates6(i).Color=[0 1 0]; %%% cayn 
 end
@@ -445,8 +445,8 @@ ylim([0 2])
 xlabel('Time [min]','FontSize',10)
 ylabel('Contraction rate','FontSize',10)
 
-savefig([save_to_file,'\AVGcontraction rate vs time.fig']);
-saveas(figure (1),[save_to_file,'\AVGcontraction rate vs time.tif']);
+savefig(fullfile(save_to_file,'\AVGcontraction rate vs time.fig'));
+saveas(figure (1),fullfile(save_to_file,'\AVGcontraction rate vs time.tif'));
 saveas(figure (1),[save_to_file,'\AVGcontraction rate vs time'],'epsc');
 
 
@@ -485,8 +485,8 @@ ylim([0 2])
 xlabel('Time [min]','FontSize',10)
 ylabel('Net turnover rate','FontSize',10)
 
-savefig([save_to_file,'\AVGturnover rate vs time.fig']);
-saveas(figure (2),[save_to_file,'\AVGturnover rate vs time.tif']);
+savefig(fullfile(save_to_file,'\AVGturnover rate vs time.fig'));
+saveas(figure (2),fullfile(save_to_file,'\AVGturnover rate vs time.tif'));
 saveas(figure (2),[save_to_file,'\AVturnover  rate vs time'],'epsc');
 
 
@@ -539,8 +539,8 @@ ylim([0 2])
 xlabel('Time [min]','FontSize',10)
 ylabel('Contraction rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\AVGcontraction rate vs time non norm.fig']);
-saveas(figure (1),[save_to_file,'\AVGcontraction rate vs time non norm.tif']);
+savefig(fullfile(save_to_file,'\AVGcontraction rate vs time non norm.fig'));
+saveas(figure (1),fullfile(save_to_file,'\AVGcontraction rate vs time non norm.tif'));
 saveas(figure (1),[save_to_file,'\AVGcontraction rate vs time non norm'],'epsc');
 
 
@@ -579,7 +579,7 @@ ylim([0 2])
 xlabel('Time [min]','FontSize',10)
 ylabel('Net turnover rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\AVGturnover rate vs time non norm.fig']);
-saveas(figure (2),[save_to_file,'\AVGturnover rate vs time non norm.tif']);
+savefig(fullfile(save_to_file,'\AVGturnover rate vs time non norm.fig'));
+saveas(figure (2),fullfile(save_to_file,'\AVGturnover rate vs time non norm.tif'));
 saveas(figure (2),[save_to_file,'\AVturnover  rate vs time non norm'],'epsc');
 

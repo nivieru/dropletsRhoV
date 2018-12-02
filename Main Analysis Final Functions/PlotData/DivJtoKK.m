@@ -16,8 +16,8 @@ end
 Rrho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRrho.mat'));
 Rho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRho.mat'));
 
-% MinDistanceFromEdge=importdata([Capture_folder,'Rho\MinDistanceFromEdge.mat']);
-% MaxDistanceFromEdge=importdata([Capture_folder,'Rho\MaxDistanceFromEdge.mat']);
+% MinDistanceFromEdge=importdata(fullfile(Capture_folder,'Rho\MinDistanceFromEdge.mat'));
+% MaxDistanceFromEdge=importdata(fullfile(Capture_folder,'Rho\MaxDistanceFromEdge.mat'));
 
 MinRho=0;
 CHUNK_radius=importdata(fullfile(Capture_folder,'Analysis parameters\CHUNK_radius.m')); %%%chunk radius
@@ -33,13 +33,13 @@ ACTIN_NETWORK_radius=importdata(fullfile(Capture_folder,'Analysis parameters\ACT
 
 
 % %%%% change made only for 10um samples
-% Rrho=importdata([Capture_folder,'Rho\OriginalAvgRrho.mat']);
-% Rho=importdata([Capture_folder,'Rho\OriginalAvgRho.mat']);
+% Rrho=importdata(fullfile(Capture_folder,'Rho\OriginalAvgRrho.mat'));
+% Rho=importdata(fullfile(Capture_folder,'Rho\OriginalAvgRho.mat'));
 % 
 % placeMinDistance=min(find(Rrho>(DROP_radius-20)));
 % Rho(placeMinDistance:end)=[];
 % Rrho(placeMinDistance:end)=[];
-% save([ROI_folder,'FinalVectors\Rrho.mat'],'Rrho')
+% save(fullfile(ROI_folder,'FinalVectors\Rrho.mat'),'Rrho')
 % %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% subtract the monomers Intensity mean [ I(Rnetwork):I(Rmin Reffective) ]
@@ -76,8 +76,8 @@ end
 % placeMaxR=find(Rr>(DROP_radius-20));
 % Rr(placeMaxR)=[];
 % Vr(placeMaxR)=[];
-% save([ROI_folder,'FinalVectors\Rr.mat'],'Rr')
-% save([ROI_folder,'FinalVectors\Vr.mat'],'Vr')
+% save(fullfile(ROI_folder,'FinalVectors\Rr.mat'),'Rr')
+% save(fullfile(ROI_folder,'FinalVectors\Vr.mat'),'Vr')
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 placeMaxR=find(Rrho>Rr(end));
@@ -165,8 +165,8 @@ plot(RhoForFit,Smooth,'r')
 hold on
 plot(RhoForFit,LinearFitDivJ,'k')
 % 
-% savefig([save_to_file,'DivJ vs rho.fig']);
-% saveas(h,[save_to_file,'DivJ vs rho.tif']);
+% savefig(fullfile(save_to_file,'DivJ vs rho.fig'));
+% saveas(h,fullfile(save_to_file,'DivJ vs rho.tif'));
 % saveas(h,[save_to_file,'DivJ vs rho'],'epsc');
 
 

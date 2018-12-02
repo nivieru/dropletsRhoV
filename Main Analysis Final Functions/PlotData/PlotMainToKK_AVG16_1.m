@@ -3,8 +3,8 @@
 FileName='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\final figures for paper\Figure 3 ActA\';
 save_to_file=[FileName,'figuresKK\'];
 mkdir(save_to_file);
-DROPSforV=importdata([FileName,'Matlab structures\DROPSforV.mat']);
-DROPSforRho=importdata([FileName,'Matlab structures\DROPSforRho.mat']);
+DROPSforV=importdata(fullfile(FileName,'Matlab structures\DROPSforV.mat'));
+DROPSforRho=importdata(fullfile(FileName,'Matlab structures\DROPSforRho.mat'));
 
 %%%%  Vr(r)
 DROPSafterVtranslation=PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file);

@@ -3,8 +3,8 @@
 FileName='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\final figures for paper\Figure1 Control\';
 save_to_file=[FileName,'figuresKKth\'];
 mkdir(save_to_file);
-DROPSforV=importdata([FileName,'Matlab structures\DROPSforV.mat']);
-DROPSforRho=importdata([FileName,'Matlab structures\DROPSforRho.mat']);
+DROPSforV=importdata(fullfile(FileName,'Matlab structures\DROPSforV.mat'));
+DROPSforRho=importdata(fullfile(FileName,'Matlab structures\DROPSforRho.mat'));
 
 %%%% only V
 save_to_fileV=[save_to_file,'V\'];

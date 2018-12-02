@@ -7,11 +7,11 @@ mkdir([ROI_folder,'FinalVectors\']);
 Vr=importdata([ROI_folder,'Vr.m']);
 Rr=importdata([ROI_folder,'Rr.m']);  %%%the vector that fits to Vr
 
-Rrho=importdata([Capture_folder,'Rho\OriginalAvgRrho.mat']);
-Rho=importdata([Capture_folder,'Rho\OriginalAvgRho.mat']);
+Rrho=importdata(fullfile(Capture_folder,'Rho\OriginalAvgRrho.mat'));
+Rho=importdata(fullfile(Capture_folder,'Rho\OriginalAvgRho.mat'));
 
-% MinDistanceFromEdge=importdata([Capture_folder,'Rho\MinDistanceFromEdge.mat']);
-% MaxDistanceFromEdge=importdata([Capture_folder,'Rho\MaxDistanceFromEdge.mat']);
+% MinDistanceFromEdge=importdata(fullfile(Capture_folder,'Rho\MinDistanceFromEdge.mat'));
+% MaxDistanceFromEdge=importdata(fullfile(Capture_folder,'Rho\MaxDistanceFromEdge.mat'));
 
 MinRho=0;
 CHUNK_radius=importdata([Capture_folder,'Analysis parameters\CHUNK_radius.m']); %%%chunk radius
@@ -27,13 +27,13 @@ ACTIN_NETWORK_radius=importdata([Capture_folder,'Analysis parameters\ACTIN_NETWO
 
 
 % %%%% change made only for 10um samples
-% Rrho=importdata([Capture_folder,'Rho\OriginalAvgRrho.mat']);
-% Rho=importdata([Capture_folder,'Rho\OriginalAvgRho.mat']);
+% Rrho=importdata(fullfile(Capture_folder,'Rho\OriginalAvgRrho.mat'));
+% Rho=importdata(fullfile(Capture_folder,'Rho\OriginalAvgRho.mat'));
 % 
 % placeMinDistance=min(find(Rrho>(DROP_radius-20)));
 % Rho(placeMinDistance:end)=[];
 % Rrho(placeMinDistance:end)=[];
-% save([ROI_folder,'FinalVectors\Rrho.mat'],'Rrho')
+% save(fullfile(ROI_folder,'FinalVectors\Rrho.mat'),'Rrho')
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% subtract the monomers Intensity mean [ I(Rnetwork):I(Rmin Reffective) ]
@@ -70,8 +70,8 @@ end
 % placeMaxR=find(Rr>(DROP_radius-20));
 % Rr(placeMaxR)=[];
 % Vr(placeMaxR)=[];
-% save([ROI_folder,'FinalVectors\Rr.mat'],'Rr')
-% save([ROI_folder,'FinalVectors\Vr.mat'],'Vr')
+% save(fullfile(ROI_folder,'FinalVectors\Rr.mat'),'Rr')
+% save(fullfile(ROI_folder,'FinalVectors\Vr.mat'),'Vr')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 placeMaxR=find(Rrho>Rr(end));
@@ -148,15 +148,15 @@ pp=polyfit(RhoForFit',Smooth,1);
 Linear=pp(1)*RhoForFit+pp(2);
 TurnoverRate=pp(1);
 
-save([Capture_folder,'Rho\RhoMinusMonomers.mat'],'RhoMinusMonomers')
+save(fullfile(Capture_folder,'Rho\RhoMinusMonomers.mat'),'RhoMinusMonomers')
 
-save([ROI_folder,'FinalVectors\Jr.mat'],'Jr')
-save([ROI_folder,'FinalVectors\Div_Jr.mat'],'Div_Jr')
-save([ROI_folder,'FinalVectors\Div_Jr_Rrho.mat'],'Rrho')
-save([ROI_folder,'FinalVectors\Div_Jr_Rho.mat'],'Rho')
-save([ROI_folder,'FinalVectors\MinRr.mat'],'MinRr')
-save([ROI_folder,'FinalVectors\TurnoverRate.mat'],'TurnoverRate')
-save([ROI_folder,'FinalVectors\ContractionRate.mat'],'ContractionRate') %%% ca;culated only to the negative part
+save(fullfile(ROI_folder,'FinalVectors\Jr.mat'),'Jr')
+save(fullfile(ROI_folder,'FinalVectors\Div_Jr.mat'),'Div_Jr')
+save(fullfile(ROI_folder,'FinalVectors\Div_Jr_Rrho.mat'),'Rrho')
+save(fullfile(ROI_folder,'FinalVectors\Div_Jr_Rho.mat'),'Rho')
+save(fullfile(ROI_folder,'FinalVectors\MinRr.mat'),'MinRr')
+save(fullfile(ROI_folder,'FinalVectors\TurnoverRate.mat'),'TurnoverRate')
+save(fullfile(ROI_folder,'FinalVectors\ContractionRate.mat'),'ContractionRate') %%% ca;culated only to the negative part
 
 close all
 

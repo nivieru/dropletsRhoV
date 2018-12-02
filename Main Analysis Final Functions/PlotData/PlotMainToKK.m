@@ -3,8 +3,8 @@
 FileName='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\Main Data figures\mDia\';
 save_to_file=[FileName,'figures\'];
 mkdir(save_to_file);
-DROPSforV=importdata([FileName,'DROPSforV.mat']);
-DROPSforRho=importdata([FileName,'DROPSforRho.mat']);
+DROPSforV=importdata(fullfile(FileName,'DROPSforV.mat'));
+DROPSforRho=importdata(fullfile(FileName,'DROPSforRho.mat'));
 
 %%%% only V
 save_to_fileAllV=[save_to_file,'All V\'];
@@ -24,12 +24,12 @@ close all
 FileName=[,'\Avg values Figure3\'];
 save_to_file=[FileName,'figures\'];
 mkdir(save_to_file);
-DROPSforV=importdata([FileName,'DROPSforV.mat']);
+DROPSforV=importdata(fullfile(FileName,'DROPSforV.mat'));
 PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file)
 
 %%%%%Plot only AVG values for figure 4 - Buffer, Fascin, alfa actinin
 FileName=[,'Avg values Figure4\'];
 save_to_file=[FileName,'figures\'];
 mkdir(save_to_file);
-DROPSforV=importdata([FileName,'DROPSforV.mat']);
+DROPSforV=importdata(fullfile(FileName,'DROPSforV.mat'));
 PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file)

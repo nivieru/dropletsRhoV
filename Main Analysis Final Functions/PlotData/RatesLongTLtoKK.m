@@ -5,12 +5,12 @@ file='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\Paper figure
 save_to_file='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\Paper figures 21_3\S1 long TL\figures\';
 x=5*[1:11];
 
-AllDataRates1=importdata([file,'\longTL drop5\rates\AllDataRates.mat']);
-AllDataRates2=importdata([file,'\longTL drop6\rates\AllDataRates.mat']);
-AllDataRates3=importdata([file,'\longTL drop7\rates\AllDataRates.mat']);
-AllDataRates4=importdata([file,'\longTL drop8\rates\AllDataRates.mat']);
-AllDataRates5=importdata([file,'\longTL drop9\rates\AllDataRates.mat']);
-AllDataRates6=importdata([file,'\rates Long TL\AllDataRates.mat']);
+AllDataRates1=importdata(fullfile(file,'\longTL drop5\rates\AllDataRates.mat'));
+AllDataRates2=importdata(fullfile(file,'\longTL drop6\rates\AllDataRates.mat'));
+AllDataRates3=importdata(fullfile(file,'\longTL drop7\rates\AllDataRates.mat'));
+AllDataRates4=importdata(fullfile(file,'\longTL drop8\rates\AllDataRates.mat'));
+AllDataRates5=importdata(fullfile(file,'\longTL drop9\rates\AllDataRates.mat'));
+AllDataRates6=importdata(fullfile(file,'\rates Long TL\AllDataRates.mat'));
 
 
 
@@ -55,8 +55,8 @@ ax.XAxis.TickValues=[0:10:30];
 xlabel('Time [min]','FontSize',10)
 ylabel('Contraction rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\AVGcontraction rate vs time non norm.fig']);
-saveas(figure (1),[save_to_file,'\AVGcontraction rate vs time non norm.tif']);
+savefig(fullfile(save_to_file,'\AVGcontraction rate vs time non norm.fig'));
+saveas(figure (1),fullfile(save_to_file,'\AVGcontraction rate vs time non norm.tif'));
 saveas(figure (1),[save_to_file,'\AVGcontraction rate vs time non norm'],'epsc');
 
 
@@ -88,6 +88,6 @@ ylim([0 2])
 xlabel('Time [min]','FontSize',10)
 ylabel('Net turnover rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\AVGturnover rate vs time non norm.fig']);
-saveas(figure (2),[save_to_file,'\AVGturnover rate vs time non norm.tif']);
+savefig(fullfile(save_to_file,'\AVGturnover rate vs time non norm.fig'));
+saveas(figure (2),fullfile(save_to_file,'\AVGturnover rate vs time non norm.tif'));
 saveas(figure (2),[save_to_file,'\AVturnover  rate vs time non norm'],'epsc');

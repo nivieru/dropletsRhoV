@@ -320,4 +320,4 @@ rShift=struct;
 [rShift(:).typeOfExp]=[AverageValues.typeOfExp];
 
 save_to_file='C:\Users\Maya\Documents\Maya Analysis after GRC\';
-save([save_to_file,'rShift.mat'],'rShift');
+save(fullfile(save_to_file,'rShift.mat'),'rShift');

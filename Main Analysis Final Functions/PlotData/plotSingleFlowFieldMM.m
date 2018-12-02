@@ -11,10 +11,10 @@ Y0=importdata([FileName,'Analysis parameters\','Y0.m']);
 ROI=importdata([FileName,'Analysis parameters\','roi.m']);
 dropCenter=[X0-ROI(1) Y0-ROI(2)];
 dropCenter=[246 240];
-x=importdata([FileName,'Velocity\STICS\ROI[31 18 475 451]DCC30_10\','xtable.mat']);
-y=importdata([FileName,'Velocity\STICS\ROI[31 18 475 451]DCC30_10\','ytable.mat']);
-u=importdata([FileName,'Velocity\STICS\ROI[31 18 475 451]DCC30_10\','utable_AVG_EX3.mat']);
-v=importdata([FileName,'Velocity\STICS\ROI[31 18 475 451]DCC30_10\','vtable_AVG_EX3.mat']);
+x=importdata(fullfile(FileName,'Velocity\STICS\ROI[31 18 475 451]DCC30_10\','xtable.mat'));
+y=importdata(fullfile(FileName,'Velocity\STICS\ROI[31 18 475 451]DCC30_10\','ytable.mat'));
+u=importdata(fullfile(FileName,'Velocity\STICS\ROI[31 18 475 451]DCC30_10\','utable_AVG_EX3.mat'));
+v=importdata(fullfile(FileName,'Velocity\STICS\ROI[31 18 475 451]DCC30_10\','vtable_AVG_EX3.mat'));
 
 S=size(x);
 BinningFactor=4;
@@ -50,8 +50,8 @@ hold on
 
 viscircles(dropCenter,Rchunk/calibration,'EdgeColor',[0.5 0.5 0.5])
 
-savefig([FileName,'flow field jet.fig']);
-saveas(figure (3),[FileName,'flow field jet.tif']);
+savefig(fullfile(FileName,'flow field jet.fig'));
+saveas(figure (3),fullfile(FileName,'flow field jet.tif'));
 saveas(figure (3),[FileName,'flow field jet'],'epsc');
 
 

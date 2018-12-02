@@ -1,8 +1,8 @@
 file='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\Paper Figures\row data figures\ActA\ActA Summary New\';
 save_to_file=[file,'DivV from average\'];
 
-AverageValues=importdata([file,'AverageValues.mat']);
-AverageValues2=importdata([file,'AverageValues2.mat']);
+AverageValues=importdata(fullfile(file,'AverageValues.mat'));
+AverageValues2=importdata(fullfile(file,'AverageValues2.mat'));
 
 AverageValuesDivV=struct;
 AverageValuesV=AverageValues;
@@ -80,8 +80,8 @@ set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
-savefig([save_to_file,'Div V vs Rho.fig']);
-saveas(figure (1),[save_to_file,'Div V vs R.tif']);
+savefig(fullfile(save_to_file,'Div V vs Rho.fig'));
+saveas(figure (1),fullfile(save_to_file,'Div V vs R.tif'));
 saveas(figure (1),[save_to_file,'Div V vs R'],'epsc');
 
 %%%% Figure 2 - DivV(r) 
@@ -98,8 +98,8 @@ set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
-savefig([save_to_file,'Div V vs Rho.fig']);
-saveas(figure (1),[save_to_file,'Div V vs Rho.tif']);
+savefig(fullfile(save_to_file,'Div V vs Rho.fig'));
+saveas(figure (1),fullfile(save_to_file,'Div V vs Rho.tif'));
 saveas(figure (1),[save_to_file,'Div V vs Rho'],'epsc');
 
 %%%%

@@ -283,7 +283,7 @@ AllDataRates=struct;
 n=1;
 for i=1:length(AverageRates)
 
-DROPSforRho=importdata([FileName,AverageRates(i).name,'\DROPSforRho.mat']);
+DROPSforRho=importdata(fullfile(FileName,AverageRates(i).name,'\DROPSforRho.mat'));
 relvantDrops=find([DROPSforRho.typeOfExp]==AverageRates(i).typeOfExp);
 t=n;
 
@@ -311,8 +311,8 @@ AverageRates(i).AvgTurnoverTime=std([AllDataRates(t:n-1).TurnoverTime]);
 AverageRates(i).STDTurnoverTime=std([AllDataRates(t:n-1).TurnoverTime]);
  end
 
-save([save_to_file,'AverageRates.mat'],'AverageRates')
-save([save_to_file,'AllDataRates.mat'],'AllDataRates')
+save(fullfile(save_to_file,'AverageRates.mat'),'AverageRates')
+save(fullfile(save_to_file,'AllDataRates.mat'),'AllDataRates')
 
 
 

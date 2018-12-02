@@ -280,30 +280,30 @@ xlim([ -2 50])
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 3.5])
 
-savefig([save_to_file,'Vr vs R.fig']);
-saveas(figure (1),[save_to_file,'Vr vs R.tif']);
+savefig(fullfile(save_to_file,'Vr vs R.fig'));
+saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
 saveas(figure (1),[save_to_file,'Vr vs R'],'epsc');
 
 % legend(h(index_drops),LEG)
 
-% savefig([save_to_file,'Vr vs R v1.fig']);
-% saveas(figure (1),[save_to_file,'Vr vs R v1.tif']);
-% saveas(figure (1),[save_to_file,'Vr vs R v1.eps']);
+% savefig(fullfile(save_to_file,'Vr vs R v1.fig'));
+% saveas(figure (1),fullfile(save_to_file,'Vr vs R v1.tif'));
+% saveas(figure (1),fullfile(save_to_file,'Vr vs R v1.eps'));
 
 
-save([save_to_file,'AverageValues.mat'],'AverageValues');
+save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 
 DROPSafterVtranslation=DROPS;
 
-save([save_to_file,'AverageValues.mat'],'AverageValues');
-save([save_to_file,'DROPSafterVtranslation.mat'],'DROPSafterVtranslation');
+save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
+save(fullfile(save_to_file,'DROPSafterVtranslation.mat'),'DROPSafterVtranslation');
 
 
 
 
-% savefig([save_to_file,'Vr vs R avg only.fig']);
-% saveas(figure (1),[save_to_file,'Vr vs R avg only.tif']);
-% saveas(figure (1),[save_to_file,'Vr vs R avg only.eps']);
+% savefig(fullfile(save_to_file,'Vr vs R avg only.fig'));
+% saveas(figure (1),fullfile(save_to_file,'Vr vs R avg only.tif'));
+% saveas(figure (1),fullfile(save_to_file,'Vr vs R avg only.eps'));
 
 end
 

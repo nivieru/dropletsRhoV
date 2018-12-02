@@ -129,8 +129,8 @@ box off
 % ax.XAxis.FontSize=20;
 % ax.YAxis.FontSize=20;
 
-savefig([save_to_file,'rho vs R.fig']);
-saveas(figure (1),[save_to_file,'rho vs R.tif']);
+savefig(fullfile(save_to_file,'rho vs R.fig'));
+saveas(figure (1),fullfile(save_to_file,'rho vs R.tif'));
 saveas(figure (1),[save_to_file,'rho vs R'],'epsc');
 
 
@@ -227,8 +227,8 @@ set(gcf,'position',[7 7 5 3.5])
 xlabel('Normalized \rho [a.u]','FontSize',10)
 ylabel('div(J) [a.u]','FontSize',10)
 
-savefig([save_to_file,'divJ.fig']);
-saveas(figure (2),[save_to_file,'divJ.tif']);
+savefig(fullfile(save_to_file,'divJ.fig'));
+saveas(figure (2),fullfile(save_to_file,'divJ.tif'));
 saveas(figure (2),[save_to_file,'divJ'],'epsc');
 
 
@@ -307,11 +307,11 @@ ylabel('div(J) [a.u]','FontSize',10)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 3.5])
 
-savefig([save_to_file,'divJ vs r.fig']);
-saveas(figure (3),[save_to_file,'divJ vs r.tif']);
+savefig(fullfile(save_to_file,'divJ vs r.fig'));
+saveas(figure (3),fullfile(save_to_file,'divJ vs r.tif'));
 saveas(figure (3),[save_to_file,'divJ vs r'],'epsc');
 
-save([save_to_file,'AverageValues.mat'],'AverageValues')
+save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues')
 
 %%% (4) DivJ4piR^2 vs R
 
@@ -339,11 +339,11 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 3.5])
 
 
-savefig([save_to_file,'divJ4piR2 vs r.fig']);
-saveas(figure (4),[save_to_file,'divJdivJ4piR2 vs r.tif']);
+savefig(fullfile(save_to_file,'divJ4piR2 vs r.fig'));
+saveas(figure (4),fullfile(save_to_file,'divJdivJ4piR2 vs r.tif'));
 saveas(figure (4),[save_to_file,'divJdivJ4piR2 vs r'],'epsc');
 
-save([save_to_file,'DROPS.mat'],'DROPS')
+save(fullfile(save_to_file,'DROPS.mat'),'DROPS')
 
 end
 

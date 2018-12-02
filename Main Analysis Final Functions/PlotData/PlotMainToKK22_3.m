@@ -3,8 +3,8 @@
 FileName='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\Paper figures 21_3\S4 phalloidin CP Fascin\S4c Fascin\';
 save_to_file=[FileName,'figures\'];
 mkdir(save_to_file);
-DROPSforV=importdata([FileName,'Matlab functions and structures\DROPSforV.mat']);
-DROPSforRho=importdata([FileName,'Matlab functions and structures\DROPSforRho.mat']);
+DROPSforV=importdata(fullfile(FileName,'Matlab functions and structures\DROPSforV.mat'));
+DROPSforRho=importdata(fullfile(FileName,'Matlab functions and structures\DROPSforRho.mat'));
 
 %%%% only V
 save_to_fileV=[save_to_file,'V\'];

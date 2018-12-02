@@ -56,10 +56,10 @@ Vr=importdata([ROI_folder,'Vr.m']);
 lowerLine=importdata([ROI_folder,'lowerLine.m']);
 upperLine=importdata([ROI_folder,'upperLine.m']);
 %%% Linear Fit
-RrLinearFitVr=importdata([ROI_folder,'FinalVectors\RrLinearFitVr.mat']);
-LinearFitVr=importdata([ROI_folder,'FinalVectors\LinearFitVr.mat']);
-LinearFitSlope=importdata([ROI_folder,'FinalVectors\LinearFitSlope.mat']);
-LinearFitP2=importdata([ROI_folder,'FinalVectors\LinearFitP2.mat']);
+RrLinearFitVr=importdata(fullfile(ROI_folder,'FinalVectors\RrLinearFitVr.mat'));
+LinearFitVr=importdata(fullfile(ROI_folder,'FinalVectors\LinearFitVr.mat'));
+LinearFitSlope=importdata(fullfile(ROI_folder,'FinalVectors\LinearFitSlope.mat'));
+LinearFitP2=importdata(fullfile(ROI_folder,'FinalVectors\LinearFitP2.mat'));
 
 dr=-(LinearFitP2/LinearFitSlope);
 
@@ -88,16 +88,16 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
 
-savefig([save_to_file,'Row data Vr VS r-r0.fig']);
-saveas(figure (1),[save_to_file,'Row data Vr VS r-r0.tif']);
+savefig(fullfile(save_to_file,'Row data Vr VS r-r0.fig'));
+saveas(figure (1),fullfile(save_to_file,'Row data Vr VS r-r0.tif'));
 saveas(figure (1),[save_to_file,'Row data Vr VS r-r0'],'epsc');
 
 %%%%% DivJ with Linear Fit
 
-Div_Jr_Rho=importdata([ROI_folder,'FinalVectors\Div_Jr_Rho.mat']);
-Div_Jr=importdata([ROI_folder,'FinalVectors\Div_Jr.mat']);
-LinearFitDivJ=importdata([ROI_folder,'FinalVectors\LinearFitDivJ.mat']);
-RhoForFit=importdata([ROI_folder,'FinalVectors\RhoForFit.mat']);
+Div_Jr_Rho=importdata(fullfile(ROI_folder,'FinalVectors\Div_Jr_Rho.mat'));
+Div_Jr=importdata(fullfile(ROI_folder,'FinalVectors\Div_Jr.mat'));
+LinearFitDivJ=importdata(fullfile(ROI_folder,'FinalVectors\LinearFitDivJ.mat'));
+RhoForFit=importdata(fullfile(ROI_folder,'FinalVectors\RhoForFit.mat'));
 
 h=figure (2)
 plot(Div_Jr_Rho(1:end-1)/max(Div_Jr_Rho),Div_Jr/max(Div_Jr_Rho),'Color',[128/255 128/255 128/255],'LineWidth',0.5)
@@ -116,8 +116,8 @@ set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
-savefig([save_to_file,'DivJ with Linear fit.fig']);
-saveas(figure (2),[save_to_file,'DivJ with Linear fit.tif']);
+savefig(fullfile(save_to_file,'DivJ with Linear fit.fig'));
+saveas(figure (2),fullfile(save_to_file,'DivJ with Linear fit.tif'));
 saveas(figure (2),[save_to_file,'DivJ with Linear fit'],'epsc');
 
 

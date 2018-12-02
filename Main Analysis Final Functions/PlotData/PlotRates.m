@@ -102,8 +102,8 @@ AverageRates(17).typeOfExp=18;
 % for i=2:7
 for i=2:length(AverageRates)
     
-AvgValuesV=importdata([FileName,AverageRates(i).name,'\All V\','AverageValues.mat']);
-AvgValuesRho=importdata([FileName,AverageRates(i).name,'\AverageValues.mat']);
+AvgValuesV=importdata(fullfile(FileName,AverageRates(i).name,'\All V\','AverageValues.mat'));
+AvgValuesRho=importdata(fullfile(FileName,AverageRates(i).name,'\AverageValues.mat'));
 
 AverageRates(i).slopeV=AvgValuesV(2).SlopeVrVSr;
 AverageRates(i).slopeDivJ=AvgValuesRho(2).SlopeDivJ;
@@ -111,14 +111,14 @@ AverageRates(i).slopeDivJ=AvgValuesRho(2).SlopeDivJ;
 end
 
 %%% For buffer conditions
-AvgValuesV=importdata([FileName,AverageRates(2).name,'\All V\','AverageValues.mat']);
-AvgValuesRho=importdata([FileName,AverageRates(2).name,'\AverageValues.mat']);
+AvgValuesV=importdata(fullfile(FileName,AverageRates(2).name,'\All V\','AverageValues.mat'));
+AvgValuesRho=importdata(fullfile(FileName,AverageRates(2).name,'\AverageValues.mat'));
 
 AverageRates(1).slopeV=AvgValuesV(1).SlopeVrVSr;
 AverageRates(1).slopeDivJ=AvgValuesRho(1).SlopeDivJ;
 
-AvgValuesV=importdata([FileName,AverageRates(15).name,'\All V\','AverageValues.mat']);
-AvgValuesRho=importdata([FileName,AverageRates(15).name,'\AverageValues.mat']);
+AvgValuesV=importdata(fullfile(FileName,AverageRates(15).name,'\All V\','AverageValues.mat'));
+AvgValuesRho=importdata(fullfile(FileName,AverageRates(15).name,'\AverageValues.mat'));
 
 AverageRates(16).slopeV=AvgValuesV(1).SlopeVrVSr;
 AverageRates(16).slopeDivJ=AvgValuesRho(1).SlopeDivJ;
@@ -143,14 +143,14 @@ set(ax,'FontSize',8)
 xlabel('Actin turnover time[min]','FontSize',10)
 ylabel('Contraction time[min]','FontSize',10)
 
-savefig([save_to_file,'\contraction vs turnover.fig']);
-saveas(figure (1),[save_to_file,'\contraction vs turnover.tif']);
+savefig(fullfile(save_to_file,'\contraction vs turnover.fig'));
+saveas(figure (1),fullfile(save_to_file,'\contraction vs turnover.tif'));
 saveas(figure (1),[save_to_file,'\contraction vs turnover'],'epsc');
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 AllDataRates=struct;
-DROPSforRho=importdata([FileName,AverageRates(2).name,'\DROPSforRho.mat']);
+DROPSforRho=importdata(fullfile(FileName,AverageRates(2).name,'\DROPSforRho.mat'));
 % numberOfBufferDrops=15;
  numberOfBufferDrops=5;
 
@@ -190,7 +190,7 @@ AverageRates(1).STDTurnoverTime=std([AllDataRates(1:numberOfBufferDrops).Turnove
  for i=2:13
 %for i=2:7
     
-DROPSforRho=importdata([FileName,AverageRates(i).name,'\DROPSforRho.mat']);
+DROPSforRho=importdata(fullfile(FileName,AverageRates(i).name,'\DROPSforRho.mat'));
  t=n;
 % for k=6:length(DROPSforRho)
 for k=(numberOfBufferDrops+1):length(DROPSforRho)
@@ -232,7 +232,7 @@ AverageRates(i).STDTurnoverTime=std([AllDataRates(t:n-1).TurnoverTime]);
 %%% for rambam4-1 data
 
 
-DROPSforRho=importdata([FileName,AverageRates(14).name,'\DROPSforRho.mat']);
+DROPSforRho=importdata(fullfile(FileName,AverageRates(14).name,'\DROPSforRho.mat'));
  numberOfBufferDrops=15;
 % numberOfBufferDrops=5;
 n=n-1;
@@ -274,7 +274,7 @@ AverageRates(14).STDTurnoverTime=std([AllDataRates((n+1):n+numberOfBufferDrops).
 for i=15:16
 %for i=2:7
     
-DROPSforRho=importdata([FileName,AverageRates(i).name,'\DROPSforRho.mat']);
+DROPSforRho=importdata(fullfile(FileName,AverageRates(i).name,'\DROPSforRho.mat'));
  t=n;
 % for k=6:length(DROPSforRho)
 for k=(numberOfBufferDrops+1):length(DROPSforRho)
@@ -393,8 +393,8 @@ x=[0:0.1:3];
 hold on
 plot(x,p(1)*x,'LineWidth',1,'Color',[128/255 128/255 128/255])
 
-savefig([save_to_file,'\All data contraction vs turnover.fig']);
-saveas(figure (1),[save_to_file,'\All data contraction vs turnover.tif']);
+savefig(fullfile(save_to_file,'\All data contraction vs turnover.fig'));
+saveas(figure (1),fullfile(save_to_file,'\All data contraction vs turnover.tif'));
 saveas(figure (1),[save_to_file,'\All data contraction vs turnover'],'epsc');
 
 

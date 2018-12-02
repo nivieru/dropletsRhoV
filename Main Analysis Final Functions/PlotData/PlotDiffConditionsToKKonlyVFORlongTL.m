@@ -318,15 +318,15 @@ set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 7 6])
 % xlabel('(r-R_0)/(R_d_r_o_p-R_0)','FontSize',24)
 
-savefig([save_to_file,'Vr vs R.fig']);
-saveas(figure (1),[save_to_file,'Vr vs R.tif']);
+savefig(fullfile(save_to_file,'Vr vs R.fig'));
+saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
 saveas(figure (1),[save_to_file,'Vr vs R'],'epsc');
 
-save([save_to_file,'AverageValues.mat'],'AverageValues');
+save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 
 DROPSafterVtranslation=DROPS;
 
-save([save_to_file,'AverageValues.mat'],'AverageValues');
-save([save_to_file,'DROPSafterVtranslation.mat'],'DROPSafterVtranslation');
+save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
+save(fullfile(save_to_file,'DROPSafterVtranslation.mat'),'DROPSafterVtranslation');
 
 end

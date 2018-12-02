@@ -3,8 +3,8 @@
 
 function DROPSafterVtranslation=PlotDiffConditionsToKKonlyV_AVGvalues(DROPS,save_to_file,XtranslationByLinearFit)
 % Directory='C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\';
-% rShift=importdata([Directory,'Paper figures 21_3\GeneralFielsForData\rShift.mat']);
-% DefineAverageVrange=importdata([Directory,'Paper figures 21_3\GeneralFielsForData\DefineAverageVrange.mat']);
+% rShift=importdata(fullfile(Directory,'Paper figures 21_3\GeneralFielsForData\rShift.mat'));
+% DefineAverageVrange=importdata(fullfile(Directory,'Paper figures 21_3\GeneralFielsForData\DefineAverageVrange.mat'));
 % DefineAverageVrangeTypeOfExp=[DefineAverageVrange.typeOfExp];
 % rShiftTypeOfExp=[rShift.typeOfExp];
 % rShiftSHIFTS=[rShift.ShiftFinal];
@@ -311,15 +311,15 @@ ylabel('V[\mum/min]','FontSize',10)
 ylim([ -35 0])
 xlim([ 0 35])
 
-savefig([save_to_file,'Vr vs R.fig']);
-saveas(figure (1),[save_to_file,'Vr vs R.tif']);
+savefig(fullfile(save_to_file,'Vr vs R.fig'));
+saveas(figure (1),fullfile(save_to_file,'Vr vs R.tif'));
 saveas(figure (1),[save_to_file,'Vr vs R'],'epsc');
 
-save([save_to_file,'AverageValues.mat'],'AverageValues');
+save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 
 DROPSafterVtranslation=DROPS;
 
-save([save_to_file,'AverageValues.mat'],'AverageValues');
-save([save_to_file,'DROPSafterVtranslation.mat'],'DROPSafterVtranslation');
+save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
+save(fullfile(save_to_file,'DROPSafterVtranslation.mat'),'DROPSafterVtranslation');
 
 end

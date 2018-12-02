@@ -283,7 +283,7 @@ save_to_file=[directory,'\Maya Analysis after GRC\Data Analysis\Main Data figure
 %%%% only V
 close all
 DROPSforV=GenerateDropsStractureToKKforV(directory,filename,DropsForPlotForV);
-save([save_to_file,'DROPSforV.mat'],'DROPSforV')
+save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
 save_to_fileAllV=[save_to_file,'All V\'];
 mkdir(save_to_fileAllV)
 DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileAllV);
@@ -295,7 +295,7 @@ DROPSforRho=GenerateDropsStractureToKK(directory,filename,DropsForPlotForRho);
 % %%%% For rambam 4-1 extract
 % DROPSforRho=GenerateDropsStractureToKKforNonCorrectedRho(directory,filename,DropsForPlotForRho);
 
-save([save_to_file,'DROPSforRho.mat'],'DROPSforRho')
+save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
 
 %%%%Plot V profile only for the drops in Rho
 PlotDiffConditionsToKKonlyV(DROPSforRho,save_to_file);
@@ -361,12 +361,12 @@ mkdir(save_to_file)
 %%%%%% AVG Figures
 
 DROPSforV=GenerateDropsStractureToKKforV(directory,filename,DropsForPlotForV);
-save([save_to_file,'DROPSforV.mat'],'DROPSforV')
+save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
 PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file)
 
 DROPSforRho=GenerateDropsStractureToKK(directory,filename,DropsForPlotForRho);
-save([save_to_file,'DROPSforRho.mat'],'DROPSforRho')
-DROPSafterVtranslation=importdata([save_to_file,'DROPSafterVtranslation.mat']);
+save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
+DROPSafterVtranslation=importdata(fullfile(save_to_file,'DROPSafterVtranslation.mat'));
 PlotDiffConditionsToKK_DivJ_AVGvalues(DROPSforRho,DROPSafterVtranslation,save_to_file)
 
 
@@ -401,7 +401,7 @@ DROPSForPlotForRho=[714:718, 721:728,733:741]; %%% +30mM KCL
 
 % % close all
 % DROPS=GenerateDropsStractureToKKtemp(directory,filename,DropsForPlot);
-% save([save_to_file,'DROPS.mat'],'DROPS')
+% save(fullfile(save_to_file,'DROPS.mat'),'DROPS')
 % close all
 % PlotDiffConditionsToKKtemp(DROPS,save_to_file)
 % 
@@ -413,7 +413,7 @@ DROPSForPlotForRho=[714:718, 721:728,733:741]; %%% +30mM KCL
 % 
 % close all
 % DROPS=GenerateDropsStractureToKK(directory,filename,DropsForPlot,BackWithoutFlu,IntensityUnitsNorm);
-% save([save_to_file,'DROPS.mat'],'DROPS')
+% save(fullfile(save_to_file,'DROPS.mat'),'DROPS')
 % close all
 % 
 % PlotDiffConditionsToKKonlyV(DROPS,save_to_file);
@@ -438,7 +438,7 @@ DROPSForPlotForRho=[714:718, 721:728,733:741]; %%% +30mM KCL
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 % DROPS=GenerateDropsStractureToTPM(directory,filename,DropsForPlot)
-% save([save_to_file,'DROPS.mat'],'DROPS')
+% save(fullfile(save_to_file,'DROPS.mat'),'DROPS')
 % close all
 % PlotDiffConditionsToTPM(DROPS,save_to_file)
 % 
@@ -468,9 +468,9 @@ DROPSForPlotForRho=[714:718, 721:728,733:741]; %%% +30mM KCL
 % 
 % b=[DROPS.Slope];
 % MeanBeta=mean(b(1:8));
-% save([save_to_file,'MeanBeta.mat'],'MeanBeta')
+% save(fullfile(save_to_file,'MeanBeta.mat'),'MeanBeta')
 % StandartDev=std(b(1:8));
-% save([save_to_file,'StandartDev.mat'],'StandartDev')
+% save(fullfile(save_to_file,'StandartDev.mat'),'StandartDev')
 % 
 % 
 % Data80per1_5uMActA_TPM3_1=struct;
@@ -479,7 +479,7 @@ DROPSForPlotForRho=[714:718, 721:728,733:741]; %%% +30mM KCL
 % Data80per1_5uMActA_TPM3_1.Vr=DROPS.Rho;
 % Data80per1_5uMActA_TPM3_1.rVr=DROPS.Rr;
 % Data80per1_5uMActA_TPM3_1.Jr=DROPS.Jr;
-% save([save_to_file,'Data80per1_5uMActA_TPM3_1.mat'],'Data80per1_5uMActA_TPM3_1')
+% save(fullfile(save_to_file,'Data80per1_5uMActA_TPM3_1.mat'),'Data80per1_5uMActA_TPM3_1')
 % save([save_to_file,'Data80per1_5uMActA_TPM3_1.m'],'Data80per1_5uMActA_TPM3_1')
 % 
 % 

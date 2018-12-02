@@ -59,7 +59,7 @@ set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 
-savefig([save_to_file,'Div V vs Rho from avg.fig']);
-saveas(figure (1),[save_to_file,'Div V vs Rho from avg.tif']);
+savefig(fullfile(save_to_file,'Div V vs Rho from avg.fig'));
+saveas(figure (1),fullfile(save_to_file,'Div V vs Rho from avg.tif'));
 saveas(figure (1),[save_to_file,'Div V vs Rho from avg'],'epsc');
 end

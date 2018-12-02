@@ -29,8 +29,8 @@ ax.XAxis.TickValues=[ 0 0.5 1 1.5 ];
 xlabel('Added ActA [\muM]','FontSize',10)
 ylabel('Net contraction rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\contraction rate vs ActA concetration.fig']);
-saveas(figure (1),[save_to_file,'\contraction rate vs ActA concetration.tif']);
+savefig(fullfile(save_to_file,'\contraction rate vs ActA concetration.fig'));
+saveas(figure (1),fullfile(save_to_file,'\contraction rate vs ActA concetration.tif'));
 saveas(figure (1),[save_to_file,'\contraction rate vs ActA concetration'],'epsc');
 
 
@@ -58,6 +58,6 @@ ax.XAxis.TickValues=[ 0 0.5 1 1.5 ];
 xlabel('Added ActA [\muM]','FontSize',10)
 ylabel('Net Turnover rate [1/min]','FontSize',10)
 
-savefig([save_to_file,'\Turnover rate vs ActA concetration.fig']);
-saveas(figure (2),[save_to_file,'\Turnover rate vs ActA concetration.tif']);
+savefig(fullfile(save_to_file,'\Turnover rate vs ActA concetration.fig'));
+saveas(figure (2),fullfile(save_to_file,'\Turnover rate vs ActA concetration.tif'));
 saveas(figure (2),[save_to_file,'\Turnover rate vs ActA concetration'],'epsc');
