@@ -25,7 +25,7 @@ function varargout = CenteredNetworsAnalysisPLOTS(varargin)
 
 % Edit the above text to modify the response to help CenteredNetworsAnalysisPLOTS
 
-% Last Modified by GUIDE v2.5 02-Dec-2018 11:19:30
+% Last Modified by GUIDE v2.5 02-Dec-2018 18:28:08
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -84,8 +84,7 @@ function loadxlsFileButton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 [xls_file]=uigetfile('*.xlsx');
-handles.xls_folder = xls_file;
-handles.xlsfile = xls_file;
+handles.xlsFileText.String = xls_file;
 guidata(hObject, handles);
 
 
@@ -191,9 +190,13 @@ function startPlotButton_Callback(hObject, eventdata, handles)
 % hObject    handle to startPlotButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-exp_indices1 = str2num(handles.cond1_indices.String{1});
-exp_indices2 = str2num(handles.cond2_indices.String{1});
-exp_indices3 = str2num(handles.cond3_indices.String{1});
+% xls_file = handles.xlsFileText.String;
+% handles.xls_folder = xls_file;
+% handles.xlsfile = xls_file;
+
+exp_indices1 = str2num(handles.cond1_indices.String);
+exp_indices2 = str2num(handles.cond2_indices.String);
+exp_indices3 = str2num(handles.cond3_indices.String);
 exp_indices = [exp_indices1, exp_indices2, exp_indices3];
 plotFlags(1) = handles.oneCondCheckbox.Value;
 plotFlags(2) = handles.CondVsControlCheckbox.Value;
@@ -202,8 +205,8 @@ plotFlags(3) = handles.AveragesCheckbox.Value;
 DropsForPlotForV=exp_indices;
 DropsForPlotForRho=DropsForPlotForV;
 
-filename=handles.xlsfile;
-save_to_file=handles.SaveFolder;
+filename = handles.xlsFileText.String;
+save_to_file=handles.SaveToFileText.String;
 
 
 if (plotFlags(1)  ||  plotFlags(2) )
@@ -315,8 +318,8 @@ function SaveToFile1_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 [SaveToFile]=uigetdir();
-handles.SaveFolder = SaveToFile;
-handles.SaveToFile1.String = SaveToFile;
+% handles.SaveFolder = SaveToFile;
+handles.SaveToFileText.String = SaveToFile;
 guidata(hObject, handles);
 
 
@@ -333,6 +336,52 @@ function cond1_index_Callback(hObject, eventdata, handles)
 % --- Executes during object creation, after setting all properties.
 function cond1_index_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to cond1_index (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function cond2_index_Callback(hObject, eventdata, handles)
+% hObject    handle to cond2_index (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of cond2_index as text
+%        str2double(get(hObject,'String')) returns contents of cond2_index as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function cond2_index_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to cond2_index (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function cond3_index_Callback(hObject, eventdata, handles)
+% hObject    handle to cond3_index (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of cond3_index as text
+%        str2double(get(hObject,'String')) returns contents of cond3_index as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function cond3_index_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to cond3_index (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
