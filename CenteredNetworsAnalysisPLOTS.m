@@ -198,6 +198,12 @@ exp_indices1 = str2num(handles.cond1_indices.String);
 exp_indices2 = str2num(handles.cond2_indices.String);
 exp_indices3 = str2num(handles.cond3_indices.String);
 exp_indices = [exp_indices1, exp_indices2, exp_indices3];
+
+exp_types1 = str2num(handles.cond1_index.String);
+exp_types2 = str2num(handles.cond2_index.String);
+exp_types3 = str2num(handles.cond3_index.String);
+expTypes = [exp_types1, exp_types2, exp_types3];
+
 plotFlags(1) = handles.oneCondCheckbox.Value;
 plotFlags(2) = handles.CondVsControlCheckbox.Value;
 plotFlags(3) = handles.AveragesCheckbox.Value;
@@ -208,9 +214,12 @@ DropsForPlotForRho=DropsForPlotForV;
 filename = handles.xlsFileText.String;
 save_to_file=handles.SaveToFileText.String;
 
+colors(1,:)=[128/255 128/255 128/255]; %%% Gray
+colors(2,:)=[128/255 128/255 128/255]; %%% Gray %Changes this
+colors(3,:)=[128/255 128/255 128/255]; %%% Gray %Changes this
 
 if (plotFlags(1)  ||  plotFlags(2) )
-    DROPSforV=GenerateDropsStractureToKKforVforGUI(filename,DropsForPlotForV);
+    DROPSforV=GenerateDropsStractureToKKforVforGUI_Niv(filename,expTypes,colors);
     save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
     save_to_fileAllV=fullfile(save_to_file,'All V\');
     mkdir(save_to_fileAllV)   
@@ -218,7 +227,7 @@ if (plotFlags(1)  ||  plotFlags(2) )
     DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileAllV,XtranslationByLinearFit);
     %%%% Rho
     %%%% For rambam 5 extract
-    DROPSforRho=GenerateDropsStractureToKKforGUI(filename,DropsForPlotForRho);
+    DROPSforRho=GenerateDropsStractureToKKforGUI_Niv(filename,expTypes,colors);
     save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
     PlotDiffConditionsToKKgray(DROPSforRho,DROPSafterVtranslation,save_to_file)
 %     close all  
@@ -231,11 +240,11 @@ end
 if plotFlags(3)
    
    XtranslationByLinearFit='yes';
-   DROPSforV=GenerateDropsStractureToKKforVforGUI(filename,DropsForPlotForV);
+   DROPSforV=GenerateDropsStractureToKKforVforGUI_Niv(filename,expTypes,colors);
    save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
    PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file,XtranslationByLinearFit)
 
-   DROPSforRho=GenerateDropsStractureToKKforGUI(filename,DropsForPlotForRho);
+   DROPSforRho=GenerateDropsStractureToKKforGUI_Niv(filename,expTypes,colors);
    save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
    DROPSafterVtranslation=importdata(fullfile(save_to_file,'DROPSafterVtranslation.mat'));
    PlotDiffConditionsToKK_DivJ_AVGvalues(DROPSforRho,DROPSafterVtranslation,save_to_file)
