@@ -4,8 +4,8 @@
 %%%%% Need to get: ExcelSheetFilename,experiment type indeces, colors for
 %%%%% different experiment types
 
-function DROPS=GenerateDropsStractureToKKforGUI_Niv(XLSfilename,expTypeInd,Col)
-    DROPS = GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd,Col);
+function DROPS=GenerateDropsStractureToKKforGUI_Niv(XLSfilename,expTypeInd)
+    DROPS = GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd);
     for j=1:length(DROPS)
         Capture_folder=DROPS(j).name;
         find_ROI_folder=dir(fullfile(Capture_folder,'Velocity\STICS\'));

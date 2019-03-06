@@ -214,12 +214,12 @@ DropsForPlotForRho=DropsForPlotForV;
 filename = handles.xlsFileText.String;
 save_to_file=handles.SaveToFileText.String;
 
-colors(1,:)=[128/255 128/255 128/255]; %%% Gray
-colors(2,:)=[128/255 128/255 128/255]; %%% Gray %Changes this
-colors(3,:)=[128/255 128/255 128/255]; %%% Gray %Changes this
+colors(1,:)=[128 128 128]/255; %%% Gray
+colors(2,:)=[200 100 100]/255; %%%
+colors(3,:)=[100 100 200]/255; %%%
 
 if (plotFlags(1)  ||  plotFlags(2) )
-    DROPSforV=GenerateDropsStractureToKKforVforGUI_Niv(filename,expTypes,colors);
+    DROPSforV=GenerateDropsStractureToKKforVforGUI_Niv(filename,expTypes);
     save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
     save_to_fileAllV=fullfile(save_to_file,'All V\');
     mkdir(save_to_fileAllV)   
@@ -227,7 +227,7 @@ if (plotFlags(1)  ||  plotFlags(2) )
     DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileAllV,XtranslationByLinearFit);
     %%%% Rho
     %%%% For rambam 5 extract
-    DROPSforRho=GenerateDropsStractureToKKforGUI_Niv(filename,expTypes,colors);
+    DROPSforRho=GenerateDropsStractureToKKforGUI_Niv(filename,expTypes);
     save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
     PlotDiffConditionsToKKgray(DROPSforRho,DROPSafterVtranslation,save_to_file)
 %     close all  
@@ -240,11 +240,11 @@ end
 if plotFlags(3)
    
    XtranslationByLinearFit='yes';
-   DROPSforV=GenerateDropsStractureToKKforVforGUI_Niv(filename,expTypes,colors);
+   DROPSforV=GenerateDropsStractureToKKforVforGUI_Niv(filename,expTypes);
    save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
    PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file,XtranslationByLinearFit)
 
-   DROPSforRho=GenerateDropsStractureToKKforGUI_Niv(filename,expTypes,colors);
+   DROPSforRho=GenerateDropsStractureToKKforGUI_Niv(filename,expTypes);
    save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
    DROPSafterVtranslation=importdata(fullfile(save_to_file,'DROPSafterVtranslation.mat'));
    PlotDiffConditionsToKK_DivJ_AVGvalues(DROPSforRho,DROPSafterVtranslation,save_to_file)
