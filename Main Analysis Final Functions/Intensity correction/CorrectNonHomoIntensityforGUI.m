@@ -5,7 +5,9 @@
 function CorrectNonHomoIntensityforGUI(Capture_folder,ImageName,BackNoFlu,Label,CorrectionFiles_folder)
 
 %%%% Import the structure containing the correction matricies
+% For experioments before 1.1.18:
 %TypeOfLabel=importdata('C:\Users\Maya\Documents\Maya Analysis after GRC\Data Analysis\Intensity Correction\2017_03_23\80% extract CP actin and LA\Mix1 12_50\Montage images only frames far from the egde\TypeOfLabel.mat');
+% For experiments after 1.1.18:
 TypeOfLabel=importdata([CorrectionFiles_folder,'\Non Homo Correction\TypeOfLabel.mat']);
 
 %%%% Label=1 LA 

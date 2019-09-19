@@ -22,7 +22,7 @@ function varargout = CenteredNetworsAnalysis(varargin)
 
 % Edit the above text to modify the response to help CenteredNetworsAnalysis
 
-% Last Modified by GUIDE v2.5 21-Nov-2018 23:26:18
+% Last Modified by GUIDE v2.5 26-Mar-2019 14:30:37
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -349,7 +349,7 @@ function start_button_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 paramNames = {'calibration','Time_intervale', 'interrogationarea'...
-    'step', 'subpixfinder', 'pix_size_for_prefilter', 'backgroundNoFlu'}
+    'step', 'subpixfinder', 'pix_size_for_prefilter', 'backgroundNoFlu'};
 for i = 1:length(paramNames)
 %     param.(paramNames{i}) = handles.(paramNames{i}).Value;
      param.(paramNames{i})=str2double(get(handles.(paramNames{i}), 'String'));
@@ -879,6 +879,29 @@ function NumberOfSectors_Callback(hObject, eventdata, handles)
 % --- Executes during object creation, after setting all properties.
 function NumberOfSectors_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to NumberOfSectors (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function NoOfFramesRB_Callback(hObject, eventdata, handles)
+% hObject    handle to NoOfFrames (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of NoOfFrames as text
+%        str2double(get(hObject,'String')) returns contents of NoOfFrames as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function NoOfFramesRB_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to NoOfFrames (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 

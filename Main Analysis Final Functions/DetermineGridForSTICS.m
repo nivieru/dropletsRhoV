@@ -1,9 +1,15 @@
 %%%%% This function determine the grid 
 
-function DetermineGridForSTICS(Capture_folder)
+function DetermineGridForSTICS(Capture_folder,NotSymmetricNetworkFlag)
 
-X0=importdata([Capture_folder,'Analysis parameters\X0.m']);
-Y0=importdata([Capture_folder,'Analysis parameters\Y0.m']);
+if(NotSymmetricNetworkFlag == 0)
+    X0=importdata([Capture_folder,'Analysis parameters\X0.m']);
+    Y0=importdata([Capture_folder,'Analysis parameters\Y0.m']);
+else
+    X0=importdata([Capture_folder,'Analysis parameters\X0drop.m']);
+    Y0=importdata([Capture_folder,'Analysis parameters\Y0drop.m']);
+end
+
 step=importdata([Capture_folder,'Analysis parameters\step.m']);
 roi=importdata([Capture_folder,'Analysis parameters\roi.m']);
 

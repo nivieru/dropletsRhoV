@@ -8,7 +8,7 @@ CLAHE_HP_prefilter_MM(Capture_folder);
 EdgeLimit=3;  %%%%  for exculsion corrleations that the peak is inside the frame (boundries+-EdgeLimit)
 
 % ROI_folder=STICS_multiple_areas(Capture_folder,EdgeLimit);
-DetermineGridForSTICS(Capture_folder)
+DetermineGridForSTICS(Capture_folder,NotSymmetricNetworkFlag)
 GaussianWidthLimit=20;
 TrashHold1=0.2; %%%% for excluding correlations with lower than TrashHold*Average peak in network area
 % TrashHold1=0.05; %%%% for excluding correlations with lower than TrashHold*Average peak in network area
