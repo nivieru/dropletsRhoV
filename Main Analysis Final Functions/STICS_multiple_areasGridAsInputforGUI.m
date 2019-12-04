@@ -100,13 +100,13 @@ removeCorr=zeros(length(GridPointsYmod),length(GridPointsXmod)); %%% logical mat
 % Dir_ROI=dir([ROI_folder,'images\*.tiff']);
 
 for j_index = 1:length(GridPointsXmod) %vertical loop
-    j=GridPointsXmod(j_index);
+    j=round(GridPointsXmod(j_index));
     %   j = miniy; %vertical loop
-    j_index
+%    j_index
     
     for i_index = 1:length(GridPointsYmod) % horizontal loop
-        i=GridPointsYmod(i_index);
-        i_index
+        i=round(GridPointsYmod(i_index));
+%        i_index
         
         
         %         xtable(i_index,j_index)=i+interrogationarea/2;
