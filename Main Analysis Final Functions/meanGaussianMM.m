@@ -54,14 +54,14 @@ newyi = yi;
 % deal with NaNs by getting a Gaussian mean which ignores them in the sum
 % and also takes care in the normalization of the meany- to take into
 % account only entries which are not NaN
-for j = 1:length(xval),
+for j = 1:length(xval)
     Gaussxi = exp( -(newxi-xval(j)).^2./2/sigma^2);
     meany(j) = nansum(newyi.*Gaussxi)/sum(Gaussxi (find ( and ( ~ isnan(newxi) , ~ isnan(newyi)))));
     
 end
  
 
-for j = 1:length(xval),
+for j = 1:length(xval)
     Gaussxi = exp( -(newxi-xval(j)).^2./2/sigma^2);
     stdy(j) = sqrt ( nansum((newyi-meany(j)).^2 .* Gaussxi) / sum(Gaussxi (find ( and ( ~ isnan(newxi) , ~ isnan(newyi))))));
 %     stdy(j) = sqrt ( nansum((newyi-meany(j)).^2 .* Gaussxi) / sum(Gaussxi));
@@ -70,7 +70,7 @@ end
 lowerLine = meany-stdy;
 upperLine = meany+stdy;
 
-if toPlot==1,
+if toPlot==1
     figure  
     hold on
     plot(xi,yi,'*','Color','b')
