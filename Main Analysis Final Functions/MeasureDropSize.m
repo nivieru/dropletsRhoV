@@ -34,23 +34,26 @@ f=figure;
 imshow(maxProj,[])
 title('Choose: (1) Drop circle (2) Network circle')
 
-h1 = imellipse;
-vert=wait(h1);
-DROP_mask=createMask(h1);
-DROP_Position=getPosition(h1);
-DROP_radius=ceil( ((DROP_Position(3)+DROP_Position(4))/4) *calibration );
-X0drop=ceil(DROP_Position(1)+(DROP_Position(3)/2));
-Y0drop=ceil(DROP_Position(2)+(DROP_Position(4)/2));
+[h1, DROP_mask, DROP_radius, X0drop, Y0drop] = measureCircle(calibration);
+% h1 = imellipse;
+% vert=wait(h1);
+% DROP_mask=createMask(h1);
+% DROP_Position=getPosition(h1);
+% DROP_radius=ceil( ((DROP_Position(3)+DROP_Position(4))/4) *calibration );
+% X0drop=ceil(DROP_Position(1)+(DROP_Position(3)/2));
+% Y0drop=ceil(DROP_Position(2)+(DROP_Position(4)/2));
 
 %%% Take bigger ellipse for bleach correction
-setPosition(h1,[DROP_Position(1)-5,DROP_Position(2)-5,DROP_Position(3)+10,DROP_Position(4)+10]);
+h1.Radius = h1.Radius + 10;
+% setPosition(h1,[DROP_Position(1)-5,DROP_Position(2)-5,DROP_Position(3)+10,DROP_Position(4)+10]);
 DROP_maskForBleachCorr=createMask(h1);
 
-h2 = imellipse;
-vert=wait(h2);
-ACTIN_NETWORK_mask=createMask(h2);
-ACTIN_NETWORK_Position=getPosition(h2);
-ACTIN_NETWORK_radius=ceil( ((ACTIN_NETWORK_Position(3)+ACTIN_NETWORK_Position(4))/4) *calibration );
+[h2, ACTIN_NETWORK_mask, ACTIN_NETWORK_radius, ~, ~] = measureCircle(calibration);
+% h2 = imellipse;
+% vert=wait(h2);
+% ACTIN_NETWORK_mask=createMask(h2);
+% ACTIN_NETWORK_Position=getPosition(h2);
+% ACTIN_NETWORK_radius=ceil( ((ACTIN_NETWORK_Position(3)+ACTIN_NETWORK_Position(4))/4) *calibration );
 MaxRr=ACTIN_NETWORK_radius;
 roiRadius=ceil(((roi(3)+roi(4))/4)*calibration);
 
@@ -64,15 +67,15 @@ imshow(minProj,[])
 title('Choose: Chunk circle')
 
 
-
-h3 = imellipse;
-vert=wait(h3);
-CHUNK_mask=createMask(h3);
-CHUNK_Position=getPosition(h3);
-CHUNK_radius=ceil( ((CHUNK_Position(3)+CHUNK_Position(4))/4) * calibration );
+[h3, CHUNK_mask, CHUNK_radius, X0, Y0] = measureCircle(calibration);
+% h3 = imellipse;
+% vert=wait(h3);
+% CHUNK_mask=createMask(h3);
+% CHUNK_Position=getPosition(h3);
+% CHUNK_radius=ceil( ((CHUNK_Position(3)+CHUNK_Position(4))/4) * calibration );
 MinRr=CHUNK_radius;
-X0=ceil(CHUNK_Position(1)+(CHUNK_Position(3)/2));
-Y0=ceil(CHUNK_Position(2)+(CHUNK_Position(4)/2));
+% X0=ceil(CHUNK_Position(1)+(CHUNK_Position(3)/2));
+% Y0=ceil(CHUNK_Position(2)+(CHUNK_Position(4)/2));
 
 % CHUNK_radius=0;
 % MinRr=CHUNK_radius;
