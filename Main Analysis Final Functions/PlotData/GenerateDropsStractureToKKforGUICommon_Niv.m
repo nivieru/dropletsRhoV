@@ -7,7 +7,7 @@
 function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd)
     
     %%%%% Read data from excel
-    T = readtable(XLSfilename, 'Range','A2:BF2000');
+    T = readtable(XLSfilename, 'Range','A1:BF2000');
     
 %     Col=zeros(200,3);
 %     
@@ -22,6 +22,9 @@ function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd
         for dropInd = dropIndices'
             DROPS(j).xslxIndex = dropInd + 1; % index in xls is 1 + index in table due to header column in xls
             DROPS(j).name = T.FileName{dropInd};
+            if startsWith(DROPS(j).name, '\Maya Analysis after GRC\')
+                DROPS(j).name = ['W:\phkinnerets\storage\analysis\Maya\PhD Analysis',DROPS(j).name];
+            end
             Capture_folder=DROPS(j).name;
             
             DROPS(j).typeOfExp = expInd;
