@@ -110,8 +110,11 @@ for j=1:NoOfConditions
         place=find(V<minimumNumber);
         RnormTemp(place)=[];
         V(place)=[];
-        
-        interpRnorm=interp1(V,RnormTemp,AVGy);
+        if length(V) == 1
+            interpRnorm = RnormTemp;
+        else
+            interpRnorm=interp1(V,RnormTemp,AVGy);
+        end
         interpRnormWithoutNan=interpRnorm;
         AVGyWithoutNan=AVGy;
         AVGxWithoutNan=AVGx;
@@ -174,7 +177,11 @@ for j=1:NoOfConditions
         RnormTemp(place)=[];
         V(place)=[];
         
-        interpRnorm=interp1(V,RnormTemp,AVGy);
+if length(V) == 1
+    interpRnorm = RnormTemp;
+else
+    interpRnorm=interp1(V,RnormTemp,AVGy);
+end
         interpRnormWithoutNan=interpRnorm;
         AVGyWithoutNan=AVGy;
         AVGxWithoutNan=AVGx;

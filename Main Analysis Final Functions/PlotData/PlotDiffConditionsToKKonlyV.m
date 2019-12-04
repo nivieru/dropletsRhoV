@@ -136,8 +136,11 @@ for j=1:NoOfConditions
         place=find(V<minimumNumber);
         RnormTemp(place)=[];
         V(place)=[];
-   
+   if length(V) == 1
+       interpRnorm = RnormTemp;
+   else
         interpRnorm=interp1(V,RnormTemp,AVGy);
+   end
         interpRnormWithoutNan=interpRnorm;
         AVGyWithoutNan=AVGy;
         AVGxWithoutNan=AVGx;
@@ -198,8 +201,11 @@ for j=1:NoOfConditions
         place=find(V<minimumNumber);
         RnormTemp(place)=[];
         V(place)=[];
-        
+   if length(V) == 1
+       interpRnorm = RnormTemp;
+   else        
         interpRnorm=interp1(V,RnormTemp,AVGy);
+   end
         interpRnormWithoutNan=interpRnorm;
         AVGyWithoutNan=AVGy;
         AVGxWithoutNan=AVGx;
@@ -321,8 +327,8 @@ end
     
      for i=placeDrops(1):placeDrops(end)
         hold on
-%         h(i) = plot(DROPS(i).RrAfterSift2+AverageValues(j).Xteanslation,DROPS(i).Vr,'LineWidth',0.5,'Color',DROPS(i).Color);
-        h(i) = plot(DROPS(i).RrAfterSift2+AverageValues(j).Xteanslation,DROPS(i).Vr,'LineWidth',0.5,'Color',[128/255 128/255 128/255]);
+        h(i) = plot(DROPS(i).RrAfterSift2+AverageValues(j).Xteanslation,DROPS(i).Vr,'LineWidth',0.5,'Color',DROPS(i).Color);
+%         h(i) = plot(DROPS(i).RrAfterSift2+AverageValues(j).Xteanslation,DROPS(i).Vr,'LineWidth',0.5,'Color',[128/255 128/255 128/255]);
 
 %           h(i) = plot(DROPS(i).RrAfterSift2+AverageValues(j).Xteanslation,DROPS(i).Vr,'LineWidth',0.5,'Color',[128/255 128/255 128/255]);
 %             h(i) = plot(DROPS(i).RrAfterSift2+AverageValues(j).Xteanslation,DROPS(i).Vr,'LineWidth',0.5,'Color',Colorsjet(i*10,:));
@@ -331,8 +337,8 @@ end
     end  
    
     hold on
-    plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',[128/255 128/255 128/255],'LineWidth',1.5)
-%     plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',DROPS(i).Color,'LineWidth',1.5)
+%     plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',[128/255 128/255 128/255],'LineWidth',1.5)
+    plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',DROPS(i).Color,'LineWidth',1.5)
 
 %     plot(AverageValues(j).xval3+AverageValues(j).Xteanslation,AverageValues(j).meany3,'Color',DROPS(i).Color,'LineWidth',1.5)
 %     hold on
