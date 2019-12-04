@@ -36,7 +36,7 @@
 
 
 function Main_bulk_3DforGUI(Capture,AnalysisParemeters,index,CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag)
-
+disp('Main_bulk_3DforGUI');
 
 
 %%% pre running to set the parameters from image before running all the
