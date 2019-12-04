@@ -2,9 +2,11 @@
 %%%folder
 
 function AnalysisOneMovieforGUI(Capture_folder,AnalysisParemeters,index,CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag)
+disp('AnalysisOneMovieforGUI');
 
 if (index==1)
     
+    if (DropletParameters==1)
     %%SpreadsTiffs
     Spreads8bitTiffs(Capture_folder);
     
@@ -21,7 +23,7 @@ if (index==1)
     %%% if DropletParameters==2 use the saved droplet parameters from
     %%% previous run
     
-    if (DropletParameters==1)
+    
     MeasureDropSize(Capture_folder);
     end
     
