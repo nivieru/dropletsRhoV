@@ -33,11 +33,12 @@ for i=1:Number_of_C0_movies
 %     copyfile([slide_folder Dir8(dir_8bit).name],[Capture(i).name,'8bitC0.tif']);
 %     
     dir_C0=locations_of_C0_movies(i);
-    
-    if (length(Dir16(dir_C0).name)==17)
-    Capture(i).name=[slide_folder,'Capture ',Dir16(dir_C0).name(9),'\'];
-    else Capture(i).name=[slide_folder,'Capture ',Dir16(dir_C0).name(9:10),'\'];
-    end
+    C = strsplit(Dir16(dir_C0).name,'_');
+    Capture(i).name=[slide_folder,C{1},'\'];
+%     if (length(Dir16(dir_C0).name)==17)
+%     Capture(i).name=[slide_folder,'Capture ',Dir16(dir_C0).name(9),'\'];
+%     else Capture(i).name=[slide_folder,'Capture ',Dir16(dir_C0).name(9:10),'\'];
+%     end
     
     mkdir(Capture(i).name)
     copyfile([slide_folder Dir16(dir_C0).name],[Capture(i).name,'16bitC0.tiff']);
