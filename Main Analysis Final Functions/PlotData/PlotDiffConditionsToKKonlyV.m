@@ -38,13 +38,12 @@ typeOfExpVector=unique([DROPS.typeOfExp]);
 NoOfConditions=length(typeOfExpVector);
 
 for j=1:NoOfConditions
-    j
     placeDrops=find([DROPS.typeOfExp]==typeOfExpVector(j)) ;
     AverageValues(j).typeOfExp=DROPS(placeDrops(1)).typeOfExp;
     AverageValues(j).color=DROPS(placeDrops(1)).Color;
     AverageValues(j).LEG=DROPS(placeDrops(1)).typeOfExpString;
     LEG2{i}=(DROPS(placeDrops(1)).typeOfExpString);
-    
+
     VrAllData=[DROPS(placeDrops).Vr];
     RrAllData=[DROPS(placeDrops).RrMinusR0];
     [AverageValues(j).meany,AverageValues(j).lowerLine,AverageValues(j).upperLine,AverageValues(j).xval] = meanGaussianMM(RrAllData,VrAllData, 1);
@@ -191,7 +190,7 @@ for j=1:NoOfConditions
     
     % for i=1:length(DROPS)
     for i=placeDrops(1):placeDrops(end)
-        i
+        
         Rnorm=(DROPS(i).RrAfterSift);
         V=DROPS(i).Vr;
         place=find(V>maxNumber);
@@ -316,7 +315,7 @@ end
 % close all
 Fig = figure;
 Colorsjet=jet(120);
-
+avgPlot = [];
 if (NoOfConditions>1)
 Jinitial=2;
 else Jinitial=1;
@@ -338,7 +337,8 @@ end
    
     hold on
 %     plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',[128/255 128/255 128/255],'LineWidth',1.5)
-    plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',DROPS(i).Color,'LineWidth',1.5)
+    avgPlot(end + 1) = plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',DROPS(i).Color,'LineWidth',1.5,...
+        'DisplayName', LEG{j})
 
 %     plot(AverageValues(j).xval3+AverageValues(j).Xteanslation,AverageValues(j).meany3,'Color',DROPS(i).Color,'LineWidth',1.5)
 %     hold on
@@ -351,6 +351,7 @@ end
 %       
  end
 % 
+legend(avgPlot);
 if (NoOfConditions>1) 
 i=1;
 hold on
