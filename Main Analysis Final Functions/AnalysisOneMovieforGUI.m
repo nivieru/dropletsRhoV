@@ -13,7 +13,7 @@ if (index==1)
     mkdir([Capture_folder,'Analysis parameters'])
     
     %%%ChooseROI
-    [roi]=ChooseROI(Capture_folder);
+%    [roi]=ChooseROI(Capture_folder);
     
     InitializeAnalysisParamters(Capture_folder,AnalysisParemeters)
     

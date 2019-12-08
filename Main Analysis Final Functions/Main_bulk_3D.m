@@ -51,8 +51,8 @@ function Main_bulk_3D(Capture,AnalysisParemeters,index)
     
     mkdir([Capture_folder,'Analysis parameters'])
     %%%ChooseROI - choose almost entire droplet
-    [roi]=ChooseROI(Capture_folder);
-    Capture(i).roi=roi;
+    %[roi]=ChooseROI(Capture_folder);
+    %Capture(i).roi=roi;
     
     InitializeAnalysisParamters(Capture_folder,AnalysisParemeters)
     

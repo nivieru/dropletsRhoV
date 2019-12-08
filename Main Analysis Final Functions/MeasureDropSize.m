@@ -1,7 +1,7 @@
 function MeasureDropSize(Capture_folder)
 
 calibration=importdata([Capture_folder,'Analysis parameters\calibration.m']);
-roi=importdata([Capture_folder,'Analysis parameters\roi.m']);
+% roi=importdata([Capture_folder,'Analysis parameters\roi.m']);
 
 %%% New, choose the area from min and max projection 
 
@@ -55,11 +55,20 @@ DROP_maskForBleachCorr=createMask(h1);
 % ACTIN_NETWORK_Position=getPosition(h2);
 % ACTIN_NETWORK_radius=ceil( ((ACTIN_NETWORK_Position(3)+ACTIN_NETWORK_Position(4))/4) *calibration );
 MaxRr=ACTIN_NETWORK_radius;
-roiRadius=ceil(((roi(3)+roi(4))/4)*calibration);
 
-if (roiRadius<MaxRr)
-    MaxRr=roiRadius;
-end
+% NIV: Instead of prompting user for ROI, calculate rectangle containing droplet and bound by image:
+roi = [X0drop - DROP_radius/calibration, Y0drop - DROP_radius/calibration, 2*DROP_radius/calibration, 2*DROP_radius/calibration];
+roi(1) = max(roi(1),1);
+roi(2) = max(roi(2),1);
+roi(3) = min(roi(3),512-roi(1) + 1);
+roi(4) = min(roi(4),512-roi(2) + 1);
+save([Capture_folder,'Analysis parameters\roi.m'],'roi');
+
+%roiRadius=ceil(((roi(3)+roi(4))/4)*calibration);
+%
+%if (roiRadius<MaxRr)
+%    MaxRr=roiRadius;
+%end
 
 close(f)
 f = figure;
