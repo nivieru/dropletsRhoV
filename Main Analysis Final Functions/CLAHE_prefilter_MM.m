@@ -5,7 +5,7 @@ clahesize=importdata([Capture_folder,'Analysis parameters\pix_size_for_CLAHEpref
 Dir=dir([Capture_folder,'spread 8bitC0\*tiff']);
 mkdir([Capture_folder,'Velocity\CLAHE prefilter']);
 
-for i=1:length(Dir);
+for i=1:length(Dir)
     
     frameA=imread([Capture_folder,'spread 8bitC0\',Dir(i).name]);
     k=num2str(i);

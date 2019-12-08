@@ -5,7 +5,7 @@
 %%%%% different experiment types
 
 function DROPS=GenerateDropsStractureToKKforVforGUI_Niv(XLSfilename,expTypeInd)
-    DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd)
+    DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd);
     for j=1:length(DROPS)
         Capture_folder=DROPS(j).name;
         find_ROI_folder=dir(fullfile(Capture_folder,'Velocity\STICS\'));

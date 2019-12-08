@@ -49,7 +49,7 @@ else
     
     for k=1:Number_of_frames-(NumberOfFramedToAverage-1)
         
-        k
+%         k
         FirstFrame=k;
         LastFrame=k+NumberOfFramedToAverage-1;
         
