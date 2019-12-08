@@ -58,6 +58,8 @@ function CenteredNetworsAnalysisPLOTS_OpeningFcn(hObject, eventdata, handles, va
 % Choose default command line output for CenteredNetworsAnalysisPLOTS
 handles.output = hObject;
 
+handles.xlsFileText.String = '3D networks data.xlsx';
+handles.SaveToFileText.String = [getenv('USERPROFILE'), '\Documents\plots']
 % Update handles structure
 guidata(hObject, handles);
 
@@ -194,22 +196,23 @@ function startPlotButton_Callback(hObject, eventdata, handles)
 % handles.xls_folder = xls_file;
 % handles.xlsfile = xls_file;
 
-exp_indices1 = str2num(handles.cond1_indices.String);
-exp_indices2 = str2num(handles.cond2_indices.String);
-exp_indices3 = str2num(handles.cond3_indices.String);
-exp_indices = [exp_indices1, exp_indices2, exp_indices3];
+% exp_indices1 = str2num(handles.cond1_indices.String);
+% exp_indices2 = str2num(handles.cond2_indices.String);
+% exp_indices3 = str2num(handles.cond3_indices.String);
+% exp_indices = {exp_indices1, exp_indices2, exp_indices3};
 
 exp_types1 = str2num(handles.cond1_index.String);
 exp_types2 = str2num(handles.cond2_index.String);
 exp_types3 = str2num(handles.cond3_index.String);
-expTypes = [exp_types1, exp_types2, exp_types3];
+
+expTypes = {exp_types1, exp_types2, exp_types3};
 
 plotFlags(1) = handles.oneCondCheckbox.Value;
 plotFlags(2) = handles.CondVsControlCheckbox.Value;
 plotFlags(3) = handles.AveragesCheckbox.Value;
 
-DropsForPlotForV=exp_indices;
-DropsForPlotForRho=DropsForPlotForV;
+% DropsForPlotForV=exp_indices;
+% DropsForPlotForRho=DropsForPlotForV;
 
 filename = handles.xlsFileText.String;
 save_to_file=handles.SaveToFileText.String;
@@ -326,7 +329,7 @@ function SaveToFile1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-[SaveToFile]=uigetdir();
+[SaveToFile]=uigetdir(handles.SaveToFileText.String);
 % handles.SaveFolder = SaveToFile;
 handles.SaveToFileText.String = SaveToFile;
 guidata(hObject, handles);
