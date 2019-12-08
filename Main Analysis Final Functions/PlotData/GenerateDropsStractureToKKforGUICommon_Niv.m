@@ -17,8 +17,10 @@ function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd
     %%%% Generate Drops structure
     DROPS=struct;
     j=1;
-    for expInd=expTypeInd
-        dropIndices = find(T.ExperimentType == expInd);
+    for expIndC=expTypeInd
+        expInd = expIndC{:};
+        dropIndices = find(ismember(T.ExperimentType, expInd));
+%         dropIndices = find(T.ExperimentType == expInd);
         for dropInd = dropIndices'
             DROPS(j).xslxIndex = dropInd + 1; % index in xls is 1 + index in table due to header column in xls
             DROPS(j).name = T.FileName{dropInd};
@@ -27,10 +29,10 @@ function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd
             end
             Capture_folder=DROPS(j).name;
             
-            DROPS(j).typeOfExp = expInd;
+            DROPS(j).typeOfExp = expInd(1);
             DROPS(j).typeOfExpString=T.TypeOfExperiment_text_{dropInd};
 %             DROPS(j).Color=Col(expInd,:);
-            DROPS(j).Color=getColorForExpType(expInd);
+            DROPS(j).Color=getColorForExpType(expInd(1));
             DROPS(j).DropSize=importdata(fullfile(Capture_folder,'Analysis parameters\DROP_radius.m'));
             DROPS(j).ActinNetworkRadius=importdata(fullfile(Capture_folder,'Analysis parameters\ACTIN_NETWORK_radius.m'));
             DROPS(j).CHUNK_radius=importdata(fullfile(Capture_folder,'Analysis parameters\CHUNK_radius.m'));
