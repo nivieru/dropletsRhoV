@@ -149,7 +149,7 @@ Vr_sort(place)=[];
 Vr_sort_all(place)=[];
 
 
-h=figure(1)
+h=figure(1);
 plot(R_sort,Vr_sort_all,'*','Color','r')
 hold on
 plot(R_sort,Vr_sort,'*','Color','b')
@@ -222,7 +222,7 @@ R_sort_all(NaN_Place)=[];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-h=figure(2)
+h=figure(2);
 plot(R_sort_all,Vr_sort_all,'*','Color','r')
 hold on
 % plot(R_sort,Vr_sort,'.','Color','g')
@@ -273,7 +273,7 @@ if (DropRadius<calibration1*S*0.75)
     upperLine(N_remove)=[];
 end
 
-h=figure (2)
+h=figure (2);
 
 title('Vr(R)','FontSize',16)
 xlabel('R[\mum]','FontSize',16)
@@ -284,7 +284,7 @@ saveas(h,[ROI_folder,save_to_file,'STICS Vr Vs R.tif']);
 Rr=xval;
 Vr=meany;
 
-h=figure (3)
+h=figure (3);
 plot(R_sort_all,Vr_sort_all,'*','Color','r')
 hold on
 plot(R_sort,Vr_sort,'*','Color','b')

@@ -4,7 +4,7 @@
 %%%%% Need to get: ExcelSheetFilename,experiment type indeces, colors for
 %%%%% different experiment types
 
-function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd)
+function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd, expTypeStrings)
     
     %%%%% Read data from excel
     T = readtable(XLSfilename, 'Range','A1:BF2000');
@@ -17,8 +17,10 @@ function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd
     %%%% Generate Drops structure
     DROPS=struct;
     j=1;
-    for expIndC=expTypeInd
-        expInd = expIndC{:};
+%     for expIndC=expTypeInd
+%         expInd = expIndC{:};
+    for Ind=1:length(expTypeInd)
+        expInd = expTypeInd{Ind};
         dropIndices = find(ismember(T.ExperimentType, expInd));
 %         dropIndices = find(T.ExperimentType == expInd);
         for dropInd = dropIndices'
@@ -30,7 +32,11 @@ function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd
             Capture_folder=DROPS(j).name;
             
             DROPS(j).typeOfExp = expInd(1);
-            DROPS(j).typeOfExpString=T.TypeOfExperiment_text_{dropInd};
+            if exist('expTypeStrings', 'var') && numel(expTypeStrings) >= Ind && ~isempty(expTypeStrings(Ind))
+            	DROPS(j).typeOfExpString=expTypeStrings{Ind};
+            else
+                DROPS(j).typeOfExpString=T.TypeOfExperiment_text_{dropInd};
+            end
 %             DROPS(j).Color=Col(expInd,:);
             DROPS(j).Color=getColorForExpType(expInd(1));
             DROPS(j).DropSize=importdata(fullfile(Capture_folder,'Analysis parameters\DROP_radius.m'));

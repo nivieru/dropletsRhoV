@@ -55,7 +55,7 @@ for j=1:NoOfConditions
     AverageValues(j).typeOfExp=DROPS(placeDrops(1)).typeOfExp;
     AverageValues(j).color=DROPS(placeDrops(1)).Color;
     AverageValues(j).LEG=DROPS(placeDrops(1)).typeOfExpString;
-    LEG2{i}=(DROPS(placeDrops(1)).typeOfExpString);
+    LEG2{j}=(DROPS(placeDrops(1)).typeOfExpString);
     
     %%% modified at 15.1.18
     %%% loop to find (maxVnumber,minVnumber)
@@ -110,7 +110,7 @@ for j=1:NoOfConditions
         place=find(V<minimumNumber);
         RnormTemp(place)=[];
         V(place)=[];
-        if length(V) == 1
+        if length(V) <= 1
             interpRnorm = RnormTemp;
         else
             interpRnorm=interp1(V,RnormTemp,AVGy);
@@ -177,7 +177,7 @@ for j=1:NoOfConditions
         RnormTemp(place)=[];
         V(place)=[];
         
-if length(V) == 1
+if length(V) <= 1
     interpRnorm = RnormTemp;
 else
     interpRnorm=interp1(V,RnormTemp,AVGy);
@@ -246,6 +246,10 @@ end
     p=polyfit(AverageValues(j).xval3',AverageValues(j).meany3',1);
     AverageValues(j).SlopeVrVSr=p(1);
     AverageValues(j).LinearFit=p(1)*([-5:0.25:AverageValues(j).xval3(1) , AverageValues(j).xval3])'+p(2);
+    pAll = fitAll(DROPS(place));
+    mean(pAll(:,1))
+    AverageValues(j).SlopeVrVSrStd=std(pAll(:,1));
+
 %     AverageValues(j).Xteanslation=p(2)/p(1);
 
 %     if (XtranslationByLinearFit=='yes')
@@ -289,38 +293,38 @@ end
 end
 % close all
 Fig = figure;
-
+avgPlot = [];
 Jinitial=1;
  for j=Jinitial:NoOfConditions
-     
-   plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',AverageValues(j).color,'LineWidth',1.5)
-    hold on
+   fill([AverageValues(j).meanR fliplr(AverageValues(j).meanR)],[AverageValues(j).lowerLine3 fliplr(AverageValues(j).upperLine3)],AverageValues(j).color,'linestyle','none', 'FaceAlpha', 0.5);
+   hold on
+   avgPlot(end + 1) = plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',AverageValues(j).color,'LineWidth',1.5,...
+   'DisplayName', LEG2{j});
 %     plot([-5:0.25:AverageValues(j).xval3(1) , AverageValues(j).xval3]+AverageValues(j).Xteanslation,AverageValues(j).LinearFit,'k')
 %     hold on
-    plot(AverageValues(j).meanR,AverageValues(j).lowerLine3,'Color',AverageValues(j).color,'LineWidth',0.5)
-    hold on
-    plot(AverageValues(j).meanR,AverageValues(j).upperLine3,'Color',AverageValues(j).color,'LineWidth',0.5)
-%      
  end
  
-% legend(h(index_drops),LEG)     
+[hLegend,icons,plots,txt] = legend(avgPlot,'FontSize',6,'Location','southwest');
+
 box off
 ax=gca;
 set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 % xlabel('(r-R_0)/(R_d_r_o_p-R_0)','FontSize',24)
-xlabel('r-r_0[\mum]','FontSize',10)
-ylabel('V[\mum/min]','FontSize',10)
+xlabel('r-r_0[?m]','FontSize',10)
+ylabel('V[?m/min]','FontSize',10)
 % ylim([ -10 0])
 % xlim([ 0 50])
 
 ylim([ -35 0])
 xlim([ 0 35])
+resizeLegend()
 
 savefig(fullfile(save_to_file,'Vr vs R.fig'));
 saveas(Fig,fullfile(save_to_file,'Vr vs R.tif'));
-saveas(Fig,fullfile(save_to_file,'Vr vs R'),'epsc');
+print('-painters',Fig,fullfile(save_to_file,'Vr vs R'),'-depsc');
+% saveas(Fig,fullfile(save_to_file,'Vr vs R'),'epsc');
 
 save(fullfile(save_to_file,'AverageValues.mat'),'AverageValues');
 

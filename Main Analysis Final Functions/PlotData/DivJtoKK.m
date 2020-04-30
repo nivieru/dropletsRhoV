@@ -146,6 +146,7 @@ placePosative=find(Div_Jr>0);
 
 DivJForFit(placePosative)=[];
 RhoForFit(placePosative)=[];
+ROI_folder
 Smooth=smooth(RhoForFit,DivJForFit,0.3,'sgolay');
 
 % RhoForFit(find(isnan(DivJForFit)))=[];

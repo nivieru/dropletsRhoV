@@ -55,7 +55,7 @@ function CenteredNetworsAnalysis_OpeningFcn(hObject, eventdata, handles, varargi
 % Choose default command line output for CenteredNetworsAnalysis
 handles.output = hObject;
 
-handles.CorrectionFiles_folder = 'C:\Users\Niv\Documents\MATLAB\Maya code GUI - Niv\CorrectionFilesForAnalysis';
+handles.CorrectionFiles_folder = 'C:\Users\Nivieru\Documents\MATLAB\Maya code GUI - Niv\CorrectionFilesForAnalysis';
 handles.CorrectionFiles.String = handles.CorrectionFiles_folder;
 % Update handles structure
 guidata(hObject, handles);

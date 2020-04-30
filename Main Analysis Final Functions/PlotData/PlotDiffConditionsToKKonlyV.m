@@ -42,7 +42,7 @@ for j=1:NoOfConditions
     AverageValues(j).typeOfExp=DROPS(placeDrops(1)).typeOfExp;
     AverageValues(j).color=DROPS(placeDrops(1)).Color;
     AverageValues(j).LEG=DROPS(placeDrops(1)).typeOfExpString;
-    LEG2{i}=(DROPS(placeDrops(1)).typeOfExpString);
+    LEG2{j}=(DROPS(placeDrops(1)).typeOfExpString);
 
     VrAllData=[DROPS(placeDrops).Vr];
     RrAllData=[DROPS(placeDrops).RrMinusR0];
@@ -135,7 +135,7 @@ for j=1:NoOfConditions
         place=find(V<minimumNumber);
         RnormTemp(place)=[];
         V(place)=[];
-   if length(V) == 1
+   if length(V) <= 1
        interpRnorm = RnormTemp;
    else
         interpRnorm=interp1(V,RnormTemp,AVGy);
@@ -200,7 +200,7 @@ for j=1:NoOfConditions
         place=find(V<minimumNumber);
         RnormTemp(place)=[];
         V(place)=[];
-   if length(V) == 1
+   if length(V) <= 1
        interpRnorm = RnormTemp;
    else        
         interpRnorm=interp1(V,RnormTemp,AVGy);
@@ -338,7 +338,7 @@ end
     hold on
 %     plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',[128/255 128/255 128/255],'LineWidth',1.5)
     avgPlot(end + 1) = plot(AverageValues(j).meanR,AverageValues(j).meanV,'Color',DROPS(i).Color,'LineWidth',1.5,...
-        'DisplayName', LEG{j})
+        'DisplayName', LEG2{j});
 
 %     plot(AverageValues(j).xval3+AverageValues(j).Xteanslation,AverageValues(j).meany3,'Color',DROPS(i).Color,'LineWidth',1.5)
 %     hold on
@@ -351,14 +351,14 @@ end
 %       
  end
 % 
-legend(avgPlot);
 if (NoOfConditions>1) 
 i=1;
 hold on
 % plot(AverageValues(i).xval3+AverageValues(i).Xteanslation,AverageValues(i).meany3,'Color',[128/255 128/255 128/255],'LineWidth',1.5)
-plot(AverageValues(i).meanR,AverageValues(i).meanV,'Color','k','LineWidth',1.5)
+avgPlot(end + 1) = plot(AverageValues(i).meanR,AverageValues(i).meanV,'Color','k','LineWidth',1.5,'DisplayName', LEG2{1});
 
 end
+[hLegend,icons,plots,txt] = legend(avgPlot,'FontSize',6,'Location','southwest');
 
 xlabel('r-r_0[\mum]','FontSize',10)
 ylabel('V[\mum/min]','FontSize',10)
@@ -377,7 +377,7 @@ set(ax,'FontSize',8)
 set(gcf,'units','centimeter')
 set(gcf,'position',[7 7 5 4])
 % xlabel('(r-R_0)/(R_d_r_o_p-R_0)','FontSize',24)
-
+resizeLegend()
 
 savefig(fullfile(save_to_file,'Vr vs R.fig'));
 saveas(Fig,fullfile(save_to_file,'Vr vs R.tif'));

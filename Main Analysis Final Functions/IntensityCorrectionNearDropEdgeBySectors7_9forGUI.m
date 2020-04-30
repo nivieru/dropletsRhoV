@@ -98,7 +98,7 @@ for index=1:length(AverageRhoVsRbySectors)
     
     k=placeMAX;
     
-    h=figure
+    h=figure;
     
     for i=1:(placeMIN-placeMAX)
         
@@ -142,11 +142,11 @@ for index=1:length(AverageRhoVsRbySectors)
         % % d(i)=abs(newRho(end)-newRho(RnetworkPlace));
         d3(i)=sum(abs(LinearFit'-newRho(RnetworkPlace:end)));
         
-        plot(RrhoDilute,newRho,'g')
-        hold on
-        plot(RrhoDilute,RhoDilute,'r')
-        hold on
-        plot(RrhoDilute(RnetworkPlace:end)',p(1)*RrhoDilute(RnetworkPlace:end)'+p(2),'k')
+        plot(RrhoDilute,newRho,'g');
+        hold on;
+        plot(RrhoDilute,RhoDilute,'r');
+        hold on;
+        plot(RrhoDilute(RnetworkPlace:end)',p(1)*RrhoDilute(RnetworkPlace:end)'+p(2),'k');
         k=k+1;
         %
     end
@@ -198,12 +198,12 @@ for index=1:length(AverageRhoVsRbySectors)
     AverageRhoVsRbySectors(index).RrhoDilute=RrhoDilute;
     
     % plot(RrhoDilute,newRhoNetwork,'g')
-    hold on
-    plot(RrhoDilute,CorrectedRho,'b')
+    hold on;
+    plot(RrhoDilute,CorrectedRho,'b');
     % hold on
     % plot(RrhoDilute,RhoDilute,'r')
-    xlabel('R [\mum]','FontSize',16)
-    ylabel('<\rho>','FontSize',16)
+    xlabel('R [\mum]','FontSize',16);
+    ylabel('<\rho>','FontSize',16);
     
     % savefig([Capture_folder,'Rho\figures\Average Rho after intensity correction near drop egde.fig']);
     % saveas(h,[Capture_folder,'Rho\figures\Average Rho after intensity correction near drop egde.tif']);
@@ -221,13 +221,13 @@ IndexForGoodSectors=find([AverageRhoVsRbySectors.considerThisSector]==1);
 
 figure
 for i=1:length(AverageRhoVsRbySectors)
-    plot(AverageRhoVsRbySectors(i).RrhoDilute,AverageRhoVsRbySectors(i).CorrectedRho)
-    d_CorrectedRho=diff(AverageRhoVsRbySectors(i).CorrectedRho)
+    plot(AverageRhoVsRbySectors(i).RrhoDilute,AverageRhoVsRbySectors(i).CorrectedRho);
+    d_CorrectedRho=diff(AverageRhoVsRbySectors(i).CorrectedRho);
     place=find(d_CorrectedRho<1*mean(d_CorrectedRho));
     AverageRhoVsRbySectors(i).CutPlace=place(max(find(diff(place)>1))+1);
     AverageRhoVsRbySectors(i).CutVal=AverageRhoVsRbySectors(i).RrhoDilute(place(max(find(diff(place)>1))+1));
     hold on;
-    plot(AverageRhoVsRbySectors(i).RrhoDilute(AverageRhoVsRbySectors(i).CutPlace),AverageRhoVsRbySectors(i).CorrectedRho(AverageRhoVsRbySectors(i).CutPlace),'+')
+    plot(AverageRhoVsRbySectors(i).RrhoDilute(AverageRhoVsRbySectors(i).CutPlace),AverageRhoVsRbySectors(i).CorrectedRho(AverageRhoVsRbySectors(i).CutPlace),'+');
 end
 
 MinCutVal=min([AverageRhoVsRbySectors(IndexForGoodSectors).CutVal]);
@@ -250,10 +250,10 @@ figure
 MinDistanceFromEdge=min([AverageRhoVsRbySectors.DistanceFromEdge]);
 MaxDistanceFromEdge=max([AverageRhoVsRbySectors.DistanceFromEdge]);
 
-h=figure
-plot(OriginalAvgRrho,OriginalAvgRho,'r','LineWidth',3)
-hold on
-plot(CorrectedAvgRrho,CorrectedAvgRho,'g','LineWidth',3)
+h=figure;
+plot(OriginalAvgRrho,OriginalAvgRho,'r','LineWidth',3);
+hold on;
+plot(CorrectedAvgRrho,CorrectedAvgRho,'g','LineWidth',3);
 
 %%%%% mark points on the first frame of the movie
 info=imfinfo([Capture_folder,'8bitC0.tif']);
@@ -263,19 +263,19 @@ Number_of_frames=Size_info(1,1);
 figure
 for k=1:Number_of_frames
     im=imread([Capture_folder,'8bitC0.tif'],k);
-    imshow(im,[])
-    hold on
-    plot(X0,Y0,'+')
-    hold on
+    imshow(im,[]);
+    hold on;
+    plot(X0,Y0,'+');
+    hold on;
     % plot(X0drop,Y0drop,'+','Color','b')
     % hold on
-    viscircles([X0,Y0],MinCutVal/calibration,'Color','w','LineWidth',0.5)
+    viscircles([X0,Y0],MinCutVal/calibration,'Color','w','LineWidth',0.5);
     % hold on
     % viscircles([X0drop,Y0drop],DropRadius/calibration,'Color','b','LineWidth',0.5)
-    hold on
-    viscircles([X0,Y0],NetworkRadius/calibration,'Color','b','LineWidth',0.5)
-    hold on
-    text(X0,Y0+10+MinCutVal/calibration,['R_c_u_t=',num2str(MinCutVal)],'Color','c')
+    hold on;
+    viscircles([X0,Y0],NetworkRadius/calibration,'Color','b','LineWidth',0.5);
+    hold on;
+    text(X0,Y0+10+MinCutVal/calibration,['R_c_u_t=',num2str(MinCutVal)],'Color','c');
     frame(k)=getframe(gca);
     imwrite(frame(k).cdata(:,:,1),[Capture_folder,'movie with marks.tiff'],'WriteMode','append');
 end
