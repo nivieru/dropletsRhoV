@@ -103,7 +103,7 @@ end
 
 % legend(h(index_drops),LEG)
 ylim([0 1.1])
-xlim([0 40])
+% xlim([0 40])
 xlabel('r-r_0 [\mum]','FontSize',10)
 ylabel('Normalized \rho [a.u]','FontSize',10)
 
@@ -354,7 +354,7 @@ plot([0:1:35],zeros(1,length([0:1:35])),'LineWidth',0.5,'Color','k');
 xlabel('r-r_0 [\mum]','FontSize',10)
 ylabel('div(J) [a.u]','FontSize',10)
 ylim([-1.5 0.5])
-xlim([0 35])
+% xlim([0 35])
 % ylim([0 5])
 
 box off
