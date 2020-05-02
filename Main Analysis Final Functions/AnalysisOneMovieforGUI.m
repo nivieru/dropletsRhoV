@@ -1,7 +1,7 @@
 %%%Capture folder contain: 16bit movie, 8bit movie, AnalysisParemeters
 %%%folder
 
-function AnalysisOneMovieforGUI(Capture_folder,AnalysisParemeters,index,CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag)
+function AnalysisOneMovieforGUI(Capture_folder,AnalysisParemeters,index,CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag,calibrationFile)
 disp('AnalysisOneMovieforGUI');
 
 if (index==1)
@@ -15,7 +15,7 @@ if (index==1)
     %%%ChooseROI
 %    [roi]=ChooseROI(Capture_folder);
     
-    InitializeAnalysisParamters(Capture_folder,AnalysisParemeters)
+    InitializeAnalysisParamters(Capture_folder,AnalysisParemeters,calibrationFile)
     
     %%%Measure drop size
     %%% if DropletParameters==1 run the function to determine drop

@@ -35,7 +35,7 @@
 %%%          (5) AnalysisOneMovie
 
 
-function Main_bulk_3DforGUI(Capture,AnalysisParemeters,index,CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag)
+function Main_bulk_3DforGUI(Capture,AnalysisParemeters,index,CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag,calibrationFile)
 disp('Main_bulk_3DforGUI');
 
 
@@ -54,7 +54,7 @@ disp('Main_bulk_3DforGUI');
     %[roi]=ChooseROI(Capture_folder);
    % Capture(i).roi=roi;
     
-    InitializeAnalysisParamters(Capture_folder,AnalysisParemeters)
+    InitializeAnalysisParamters(Capture_folder,AnalysisParemeters,calibrationFile)
     
     %%%Measure drop size
     %%% if DropletParameters==1 run the function to determine drop

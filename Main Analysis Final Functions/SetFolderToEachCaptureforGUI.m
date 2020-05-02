@@ -41,8 +41,11 @@ for i=1:Number_of_C0_movies
 %     end
     
     mkdir(Capture(i).name)
-    copyfile([slide_folder Dir16(dir_C0).name],[Capture(i).name,'16bitC0.tiff']);
-    delete ([slide_folder Dir16(dir_C0).name])
+    filename = fullfile(slide_folder,Dir16(dir_C0).name);
+    [d,n,~] = fileparts(filename);
+    logfile = fullfile(d,[n, '.log']);
+    movefile(filename ,fullfile(Capture(i).name,'16bitC0.tiff'));
+    movefile(logfile ,fullfile(Capture(i).name,'16bitC0.log'));
     info=imfinfo([Capture(i).name,'16bitC0.tiff']);
     Size_info=size(info);
     Number_of_frames=Size_info(1,1);

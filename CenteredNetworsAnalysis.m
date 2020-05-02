@@ -22,7 +22,7 @@ function varargout = CenteredNetworsAnalysis(varargin)
 
 % Edit the above text to modify the response to help CenteredNetworsAnalysis
 
-% Last Modified by GUIDE v2.5 26-Mar-2019 14:30:37
+% Last Modified by GUIDE v2.5 01-May-2020 22:49:34
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -55,7 +55,7 @@ function CenteredNetworsAnalysis_OpeningFcn(hObject, eventdata, handles, varargi
 % Choose default command line output for CenteredNetworsAnalysis
 handles.output = hObject;
 
-handles.CorrectionFiles_folder = 'C:\Users\Nivieru\Documents\MATLAB\Maya code GUI - Niv\CorrectionFilesForAnalysis';
+handles.CorrectionFiles_folder = 'CorrectionFilesForAnalysis';
 handles.CorrectionFiles.String = handles.CorrectionFiles_folder;
 % Update handles structure
 guidata(hObject, handles);
@@ -404,18 +404,19 @@ else
     SpetialAveraging.EndAngle=str2double(get(handles.EndAngle, 'String'));
 end
 
+calibrationFile = handles.calibrationFile.String;
+
 %%% Flag for not symmetric network
 NotSymmetricNetworkFlag=handles.NotSymmetricNetwork.Value;
 
 if (handles.index==2)
 slide_folder = handles.slide_folder;
 load(fullfile(slide_folder,'Capture.mat'));
-Main_bulk_3DforGUI(Capture,AnalysisParemeters,handles.index,handles.CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag); % index 2 for whole slide, 1 for one movie
+Main_bulk_3DforGUI(Capture,AnalysisParemeters,handles.index,handles.CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag,calibrationFile); % index 2 for whole slide, 1 for one movie
 else
     Capture_folder=[handles.Drop_folder,'\'];
-    AnalysisOneMovieforGUI(Capture_folder,AnalysisParemeters,handles.index,handles.CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag);
+    AnalysisOneMovieforGUI(Capture_folder,AnalysisParemeters,handles.index,handles.CorrectionFiles_folder,NumberOfFramedToAverage,HomoCorrectionFlag,BleachCorrectionFlag,EdgeCorrectionFlag,DropletParameters,SpetialAveraging,NumberOfSectors,NotSymmetricNetworkFlag,calibrationFile);
 end
-
 
 
 % --- Executes on button press in set_folder_button_slide.
@@ -910,3 +911,13 @@ function NoOfFramesRB_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in CalibrationFileButton.
+function CalibrationFileButton_Callback(hObject, eventdata, handles)
+% hObject    handle to CalibrationFileButton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+[calibrationFile, calibrationFilePath]=uigetfile();
+handles.calibrationFile.String = fullfile(calibrationFilePath,calibrationFile);
+guidata(hObject, handles);
