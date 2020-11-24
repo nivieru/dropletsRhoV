@@ -57,8 +57,8 @@ for i=1:Number_of_C0_movies
     Movie8bit=imadjust(Movie8bit);
       if (k==1)  
       imwrite(Movie8bit,[Capture(i).name,'8bitC0.tif']);
-      end
-     imwrite(Movie8bit,[Capture(i).name,'8bitC0.tif'],'WriteMode','append');
+      else
+      imwrite(Movie8bit,[Capture(i).name,'8bitC0.tif'],'WriteMode','append');
     end
     
 
