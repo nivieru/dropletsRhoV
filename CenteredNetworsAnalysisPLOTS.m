@@ -25,7 +25,7 @@ function varargout = CenteredNetworsAnalysisPLOTS(varargin)
 
 % Edit the above text to modify the response to help CenteredNetworsAnalysisPLOTS
 
-% Last Modified by GUIDE v2.5 02-Dec-2018 18:28:08
+% Last Modified by GUIDE v2.5 24-Nov-2020 12:54:12
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -59,9 +59,11 @@ function CenteredNetworsAnalysisPLOTS_OpeningFcn(hObject, eventdata, handles, va
 handles.output = hObject;
 
 handles.xlsFileText.String = '3D networks data.xlsx';
-handles.SaveToFileText.String = [getenv('USERPROFILE'), '\Documents\plots']
+handles.SaveToFileText.String = [getenv('USERPROFILE'), '\Documents\plots'];
+handles.cond = [];
 % Update handles structure
 guidata(hObject, handles);
+addCond(hObject, handles);
 
 % UIWAIT makes CenteredNetworsAnalysisPLOTS wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
@@ -200,13 +202,10 @@ function startPlotButton_Callback(hObject, eventdata, handles)
 % exp_indices2 = str2num(handles.cond2_indices.String);
 % exp_indices3 = str2num(handles.cond3_indices.String);
 % exp_indices = {exp_indices1, exp_indices2, exp_indices3};
-
-exp_types1 = str2num(handles.cond1_index.String);
-exp_types2 = str2num(handles.cond2_index.String);
-exp_types3 = str2num(handles.cond3_index.String);
-
-expTypes = {exp_types1, exp_types2, exp_types3};
-expTypeStrings = {handles.cond1_name.String, handles.cond2_name.String, handles.cond3_name.String};
+for i=1:length(handles.cond)
+    expTypes{i} = str2num(handles.cond(i).index.String);
+    expTypeStrings{i} = handles.cond(i).name.String;
+end
 plotFlags(1) = handles.oneCondCheckbox.Value;
 plotFlags(2) = handles.CondVsControlCheckbox.Value;
 plotFlags(3) = handles.AveragesCheckbox.Value;
@@ -405,3 +404,104 @@ function cond3_index_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in add_cond.
+function add_cond_Callback(hObject, eventdata, handles)
+% hObject    handle to add_cond (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+addCond(hObject, handles);
+
+function removeCond(hObject, event, condNum)
+handles = guidata(hObject);
+fig = ancestor(hObject,'figure');
+plusButton = findobj(fig, 'Tag', 'add_cond');
+startButton = findobj(fig, 'Tag', 'startPlotButton');
+optionsGroup = findobj(fig, 'Tag', 'optionsGroup');
+plotsGroup = findobj(fig, 'Tag', 'plots');
+
+h0 = 37;
+yMargin = 5;
+dh = h0 + yMargin;
+y = 100;
+if length(handles.cond) == 1
+    handles.cond(1).name.String = '';
+    handles.cond(1).index.String = '';
+    guidata(fig,handles);
+    return;
+end
+    
+for i=(condNum+1):length(handles.cond)
+    for f=fieldnames(handles.cond(i))'
+        handles.cond(i).(f{:}).Position(2) = handles.cond(i).(f{:}).Position(2) + dh;
+    end
+    handles.cond(i).minusButton.Callback = {@removeCond, i-1};
+    handles.cond(i).text.String = sprintf('Condition %d', i-1);
+end
+delete(struct2array(handles.cond(condNum)));
+handles.cond(condNum) = [];
+plusButton.Units = 'pixels';
+plusButton.Position(2) = plusButton.Position(2) + dh;
+
+startButton.Units = 'pixels';
+startButton.Position(2) = startButton.Position(2) + dh;
+optionsGroup.Units = 'pixels';
+optionsGroup.Position(2) = optionsGroup.Position(2) + dh;
+fig.Units = 'pixels';
+fig.Position(4) = fig.Position(4) - dh;
+fig.Position(2) = fig.Position(2) + dh;
+plotsGroup.Position(4) = plotsGroup.Position(4) - dh;
+children = plotsGroup.Children;
+for i=1:length(children)
+    children(i).Units = 'pixels';
+    children(i).Position(2) = children(i).Position(2) - dh;
+end
+guidata(fig,handles);
+
+function addCond(hObject, handles)
+fig = ancestor(hObject,'figure');
+plusButton = findobj(fig, 'Tag', 'add_cond');
+startButton = findobj(fig, 'Tag', 'startPlotButton');
+optionsGroup = findobj(fig, 'Tag', 'optionsGroup');
+plotsGroup = findobj(fig, 'Tag', 'plots');
+
+condNum = length(handles.cond) + 1;
+x0 = 130;
+y0 = 100;
+h0 = 37;
+textWidth = [220, 100];
+xMargin = 10;
+yMargin = 5;
+dh = h0 + yMargin;
+x = [x0, x0 + textWidth(1) + xMargin];
+y = y0;
+condText = uicontrol(plotsGroup, 'Style', 'text', 'Position', [x0 - 70, y-10, 60, h0], 'String', sprintf('Condition %d', condNum));
+for i=1:length(textWidth)
+    textFields(i) = uicontrol(plotsGroup, 'Style', 'edit', 'Position', [x(i), y, textWidth(i), h0]);
+end
+minusButton = uicontrol(plotsGroup, 'Style', 'pushbutton', 'Position', [x(end) + textWidth(end) + xMargin , y, h0, h0], 'String', '-', 'FontSize', 24);
+minusButton.Callback = {@removeCond, condNum};
+
+plusButton.Units = 'pixels';
+plusButton.Position = minusButton.Position;
+plusButton.Position(1) = plusButton.Position(1) + h0 + xMargin;
+
+startButton.Units = 'pixels';
+startButton.Position(2) = y-100;
+optionsGroup.Units = 'pixels';
+optionsGroup.Position(2) = y-100;
+fig.Units = 'pixels';
+fig.Position(4) = fig.Position(4) + dh;
+fig.Position(2) = fig.Position(2) - dh;
+plotsGroup.Position(4) = plotsGroup.Position(4) + dh;
+children = plotsGroup.Children;
+for i=1:length(children)
+    children(i).Units = 'pixels';
+    children(i).Position(2) = children(i).Position(2) + dh;
+end
+handles.cond(condNum).name = textFields(1);
+handles.cond(condNum).index = textFields(2);
+handles.cond(condNum).text = condText;
+handles.cond(condNum).minusButton = minusButton;
+guidata(hObject,handles);
