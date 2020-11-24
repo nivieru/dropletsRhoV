@@ -30,8 +30,9 @@ end
 %%%% End New
 
 %Drop_image=imread([Capture_folder,'spread 8bitC0\40.tiff']);
-f=figure;
-imshow(maxProj,[])
+%imshow(maxProj,[])
+f = imageWithBrightnessSlider(maxProj);
+
 title('Choose: (1) Drop circle (2) Network circle')
 
 [h1, DROP_mask, DROP_radius, X0drop, Y0drop] = measureCircle(calibration);
