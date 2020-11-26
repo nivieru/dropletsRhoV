@@ -91,75 +91,6 @@ function loadxlsFileButton_Callback(hObject, eventdata, handles)
 handles.xlsFileText.String = xls_file;
 guidata(hObject, handles);
 
-
-function cond1_indices_Callback(hObject, eventdata, handles)
-% hObject    handle to cond1_indices (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond1_indices as text
-%        str2double(get(hObject,'String')) returns contents of cond1_indices as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond1_indices_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond1_indices (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function cond2_indices_Callback(hObject, eventdata, handles)
-% hObject    handle to cond2_indices (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond2_indices as text
-%        str2double(get(hObject,'String')) returns contents of cond2_indices as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond2_indices_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond2_indices (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function cond2_name_Callback(hObject, eventdata, handles)
-% hObject    handle to cond2_name (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond2_name as text
-%        str2double(get(hObject,'String')) returns contents of cond2_name as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond2_name_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond2_name (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
 % --- Executes on button press in oneCondCheckbox.
 function oneCondCheckbox_Callback(hObject, eventdata, handles)
 % hObject    handle to oneCondCheckbox (see GCBO)
@@ -187,21 +118,12 @@ function AveragesCheckbox_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of AveragesCheckbox
 
 
-
-
 % --- Executes on button press in startPlotButton.
 function startPlotButton_Callback(hObject, eventdata, handles)
 % hObject    handle to startPlotButton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-% xls_file = handles.xlsFileText.String;
-% handles.xls_folder = xls_file;
-% handles.xlsfile = xls_file;
 
-% exp_indices1 = str2num(handles.cond1_indices.String);
-% exp_indices2 = str2num(handles.cond2_indices.String);
-% exp_indices3 = str2num(handles.cond3_indices.String);
-% exp_indices = {exp_indices1, exp_indices2, exp_indices3};
 for i=1:length(handles.cond)
     expTypes{i} = str2num(handles.cond(i).index.String);
     expTypeStrings{i} = handles.cond(i).name.String;
@@ -215,115 +137,7 @@ plotFlags(3) = handles.AveragesCheckbox.Value;
 
 filename = handles.xlsFileText.String;
 save_to_file=handles.SaveToFileText.String;
-experiments.expTypes = expTypes;
-experiments.expTypeStrings = expTypeStrings;
-save(fullfile(save_to_file,'experiments.mat'),'experiments')
-
-colors(1,:)=[128 128 128]/255; %%% Gray
-colors(2,:)=[200 100 100]/255; %%%
-colors(3,:)=[100 100 200]/255; %%%
-
-if (plotFlags(1)  ||  plotFlags(2) )
-    DROPSforV=GenerateDropsStractureToKKforVforGUI_Niv(filename,expTypes,expTypeStrings);
-    save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
-    save_to_fileAllV=fullfile(save_to_file,'All V\');
-    mkdir(save_to_fileAllV)   
-    XtranslationByLinearFit='yes';
-    DROPSafterVtranslation=PlotDiffConditionsToKKonlyV(DROPSforV,save_to_fileAllV,XtranslationByLinearFit);
-    %%%% Rho
-    %%%% For rambam 5 extract
-    DROPSforRho=GenerateDropsStractureToKKforGUI_Niv(filename,expTypes,expTypeStrings);
-    save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
-    PlotDiffConditionsToKKgray(DROPSforRho,DROPSafterVtranslation,save_to_file)
-%     close all  
-end
-
-
-
-%%%% Only Average values
-
-if plotFlags(3)
-   
-   XtranslationByLinearFit='yes';
-   DROPSforV=GenerateDropsStractureToKKforVforGUI_Niv(filename,expTypes,expTypeStrings);
-   save(fullfile(save_to_file,'DROPSforV.mat'),'DROPSforV')
-   PlotDiffConditionsToKKonlyV_AVGvalues(DROPSforV,save_to_file,XtranslationByLinearFit)
-
-   DROPSforRho=GenerateDropsStractureToKKforGUI_Niv(filename,expTypes,expTypeStrings);
-   save(fullfile(save_to_file,'DROPSforRho.mat'),'DROPSforRho')
-   DROPSafterVtranslation=importdata(fullfile(save_to_file,'DROPSafterVtranslation.mat'));
-   PlotDiffConditionsToKK_DivJ_AVGvalues(DROPSforRho,DROPSafterVtranslation,save_to_file)
-  
-end
-
-
-function cond3_indices_Callback(hObject, eventdata, handles)
-% hObject    handle to cond3_indices (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond3_indices as text
-%        str2double(get(hObject,'String')) returns contents of cond3_indices as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond3_indices_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond3_indices (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function cond1_name_Callback(hObject, eventdata, handles)
-% hObject    handle to cond1_name (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond1_name as text
-%        str2double(get(hObject,'String')) returns contents of cond1_name as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond1_name_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond1_name (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function cond3_name_Callback(hObject, eventdata, handles)
-% hObject    handle to cond3_name (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond3_name as text
-%        str2double(get(hObject,'String')) returns contents of cond3_name as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond3_name_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond3_name (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
+doPlots(expTypes, expTypeStrings, filename, save_to_file, plotFlags);
 
 % --- Executes on button press in SaveToFile1.
 function SaveToFile1_Callback(hObject, eventdata, handles)
@@ -335,76 +149,6 @@ function SaveToFile1_Callback(hObject, eventdata, handles)
 % handles.SaveFolder = SaveToFile;
 handles.SaveToFileText.String = SaveToFile;
 guidata(hObject, handles);
-
-
-
-function cond1_index_Callback(hObject, eventdata, handles)
-% hObject    handle to cond1_index (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond1_index as text
-%        str2double(get(hObject,'String')) returns contents of cond1_index as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond1_index_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond1_index (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function cond2_index_Callback(hObject, eventdata, handles)
-% hObject    handle to cond2_index (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond2_index as text
-%        str2double(get(hObject,'String')) returns contents of cond2_index as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond2_index_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond2_index (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
-
-
-function cond3_index_Callback(hObject, eventdata, handles)
-% hObject    handle to cond3_index (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of cond3_index as text
-%        str2double(get(hObject,'String')) returns contents of cond3_index as a double
-
-
-% --- Executes during object creation, after setting all properties.
-function cond3_index_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to cond3_index (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: edit controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
-
 
 % --- Executes on button press in add_cond.
 function add_cond_Callback(hObject, eventdata, handles)

@@ -13,7 +13,6 @@ Vr=importdata(fullfile(ROI_folder,'Vr.m'));
 Rr=importdata(fullfile(ROI_folder,'Rr.m'));  %%%the vector that fits to Vr
 end
 
-Capture_folder
 Rrho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRrho.mat'));
 Rho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRho.mat'));
 
@@ -147,7 +146,6 @@ placePosative=find(Div_Jr>0);
 
 DivJForFit(placePosative)=[];
 RhoForFit(placePosative)=[];
-ROI_folder
 Smooth=smooth(RhoForFit,DivJForFit,0.3,'sgolay');
 
 % RhoForFit(find(isnan(DivJForFit)))=[];

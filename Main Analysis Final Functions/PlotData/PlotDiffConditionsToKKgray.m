@@ -25,7 +25,6 @@ end
 %% (1) Rho(R)
 
 for i=1:length(DROPS)
-    i
      j=find([DROPSafterVtranslation.xslxIndex]==DROPS(i).xslxIndex);
     placeNearblob=find(DROPS(i).Rrho>DROPS(i).CHUNK_radius-2);
     MaxRho=max(DROPS(i).RhoMinusMonomers(placeNearblob));
