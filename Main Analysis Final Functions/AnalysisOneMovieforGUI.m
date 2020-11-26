@@ -30,7 +30,9 @@ if (index==1)
 end
  
 % ConvertFilesToMat([Capture_folder,'AnalysisParemeters\'])
-
+if isfile(fullfile(Capture_folder,'skipFolder'))
+    return
+end
 %   ROI_folder=CalculteVelocityFieldforGUI(Capture_folder,NumberOfFramedToAverage);
   ROI_folder=CalculteVelocityFieldforGUI(Capture_folder,NumberOfFramedToAverage,SpetialAveraging,NotSymmetricNetworkFlag);
   close all
