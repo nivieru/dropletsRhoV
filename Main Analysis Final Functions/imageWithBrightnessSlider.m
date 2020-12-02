@@ -9,8 +9,10 @@ brightnessSlider.Position(3) = 120;
 brightnessSlider.Position(1) = sliderLabel.Position(1) + sliderLabel.Position(3) +10;
 
 cancelButton = uicontrol(fig, 'Style','pushbutton','String', 'Ignore Droplet', 'Callback', {@cancelImage, fig});
-cancelButton.Position(1) = brightnessSlider.Position(1) + brightnessSlider.Position(3) + 10;
+%.Position(1) = brightnessSlider.Position(1) + brightnessSlider.Position(3) + 10;
 cancelButton.Position(3) = 80;
+cancelButton.Position(1) = fig.Position(3) - 90;
+
     function imageCLim(source,event)
         val = source.Value;
         CL = ax.CLim;

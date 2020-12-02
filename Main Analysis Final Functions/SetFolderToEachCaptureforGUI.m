@@ -46,22 +46,7 @@ for i=1:Number_of_C0_movies
     logfile = fullfile(d,[n, '.log']);
     movefile(filename ,fullfile(Capture(i).name,'16bitC0.tiff'));
     movefile(logfile ,fullfile(Capture(i).name,'16bitC0.log'));
-    info=imfinfo([Capture(i).name,'16bitC0.tiff']);
-    Size_info=size(info);
-    Number_of_frames=Size_info(1,1);
-
-    
-    for k=1:Number_of_frames
-    Movie16bit=imread([Capture(i).name,'16bitC0.tiff'],k);
-    Movie8bit=im2uint8(Movie16bit);
-    Movie8bit=imadjust(Movie8bit);
-      if (k==1)  
-      imwrite(Movie8bit,[Capture(i).name,'8bitC0.tif']);
-      else
-      imwrite(Movie8bit,[Capture(i).name,'8bitC0.tif'],'WriteMode','append');
-    end
-    
-
+    make8bitTiff(Capture(i).name);
 end
 
 end

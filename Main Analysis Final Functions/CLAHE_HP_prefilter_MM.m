@@ -5,7 +5,11 @@ clahesize=importdata([Capture_folder,'Analysis parameters\pix_size_for_CLAHEpref
 highpsize=importdata([Capture_folder,'Analysis parameters\pix_size_for_HPprefilter.m']);
 
 Dir=dir([Capture_folder,'spread 8bitC0\*tiff']);
-mkdir([Capture_folder,'Velocity\CLAHE_HP prefilter']);
+[status,msg,msgID] = mkdir([Capture_folder,'Velocity\CLAHE_HP prefilter']); 
+if status ~= 1
+    error(msgID, msg);
+end
+    
 
 for i=1:length(Dir)
     

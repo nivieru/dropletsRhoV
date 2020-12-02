@@ -57,7 +57,7 @@ try
     MaxRr=ACTIN_NETWORK_radius;
 catch ME
     if ME.identifier == 'MATLAB:class:InvalidHandle'
-        fprintf('ignoring image');
+        fprintf('Skipping capture %s\n',Capture_folder);
         fid = fopen(fullfile(Capture_folder,'skipFolder'),'w');
         fclose(fid);
         return
