@@ -122,7 +122,7 @@ close(Fig);
 for i=1:length(DROPS)
     i
     j=find([DROPSafterVtranslation.xslxIndex]==DROPS(i).xslxIndex);
-    placeNearblob=find(DROPS(i).Rrho>DROPS(i).CHUNK_radius-2)
+    placeNearblob=find(DROPS(i).Rrho>DROPS(i).CHUNK_radius-2);
     MaxRho=max(DROPS(i).RhoMinusMonomers(placeNearblob));
     DROPS(i).RhoNorm=DROPS(i).RhoMinusMonomers./MaxRho;
 %     DROPS(i).RhoNorm=DROPS(i).RhoMinusMonomers./max(DROPS(i).RhoMinusMonomers);

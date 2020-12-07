@@ -1,5 +1,5 @@
 function Spreads8bitTiffs(Capture_folder)
-make8bitTiff(Capture_folder);
+% make8bitTiff(Capture_folder);
 file8bit = fullfile(Capture_folder,'8bitC0.tif');
 info=imfinfo(file8bit);
 Size_info=size(info);

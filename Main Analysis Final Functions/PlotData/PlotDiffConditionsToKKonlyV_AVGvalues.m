@@ -247,7 +247,7 @@ end
     AverageValues(j).SlopeVrVSr=p(1);
     AverageValues(j).LinearFit=p(1)*([-5:0.25:AverageValues(j).xval3(1) , AverageValues(j).xval3])'+p(2);
     pAll = fitAll(DROPS(place));
-    mean(pAll(:,1))
+%     mean(pAll(:,1))
     AverageValues(j).SlopeVrVSrStd=std(pAll(:,1));
 
 %     AverageValues(j).Xteanslation=p(2)/p(1);

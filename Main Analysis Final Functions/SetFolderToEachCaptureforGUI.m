@@ -26,7 +26,8 @@ locations_of_C0_movies=find(emptyCells_C0==0);
 
 Capture=struct;
 
-for i=1:Number_of_C0_movies  
+for i=1:Number_of_C0_movies
+    fprintf('Setting folder %d of %d', i, Number_of_C0_movies);
 %     dir_8bit=locations_of_8bit_movies(i);
 %     Capture(i).name=[slide_folder,'Capture ',Dir8(dir_8bit).name(9),'\'];
 %     mkdir(Capture(i).name)
@@ -48,7 +49,7 @@ for i=1:Number_of_C0_movies
     movefile(logfile ,fullfile(Capture(i).name,'16bitC0.log'));
     make8bitTiff(Capture(i).name);
 end
-
+fprintf('Done setting folders');
 end
 
 
