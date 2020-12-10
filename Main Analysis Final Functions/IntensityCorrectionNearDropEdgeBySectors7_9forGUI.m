@@ -56,8 +56,8 @@ ThirdQuarterY_bound=Y_bound(PlaceThirdQuarter);
 
 image=ImageToAnalyze;
 
-figure
-imshow(image)
+figure;
+imshow(imread(image,1)); % This way we avoid the annoying warning about displaying only the first image in file
 hold on
 plot(X_bound(PlaceThirdQuarter),Y_bound(PlaceThirdQuarter))
 hold on
@@ -219,7 +219,7 @@ end
 
 IndexForGoodSectors=find([AverageRhoVsRbySectors.considerThisSector]==1);
 
-figure
+figure;
 for i=1:length(AverageRhoVsRbySectors)
     plot(AverageRhoVsRbySectors(i).RrhoDilute,AverageRhoVsRbySectors(i).CorrectedRho);
     d_CorrectedRho=diff(AverageRhoVsRbySectors(i).CorrectedRho);
