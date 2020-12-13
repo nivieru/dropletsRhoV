@@ -30,6 +30,8 @@ if (index==1)
 end
  
 % ConvertFilesToMat([Capture_folder,'AnalysisParemeters\'])
+
+% If a file named skipFolder exist in the capture folder, skip this capture
 if isfile(fullfile(Capture_folder,'skipFolder'))
     return
 end

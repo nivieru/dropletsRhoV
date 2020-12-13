@@ -58,7 +58,7 @@ try
 catch ME
     if ME.identifier == 'MATLAB:class:InvalidHandle'
         fprintf('Skipping capture %s\n',Capture_folder);
-        fid = fopen(fullfile(Capture_folder,'skipFolder'),'w');
+        fid = fopen(fullfile(Capture_folder,'skipFolder'),'w'); % Create empty file named skipFolder to mark not to analyse folder
         fclose(fid);
         return
     else
