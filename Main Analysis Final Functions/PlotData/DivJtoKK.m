@@ -12,7 +12,7 @@ else
 Vr=importdata(fullfile(ROI_folder,'Vr.m'));
 Rr=importdata(fullfile(ROI_folder,'Rr.m'));  %%%the vector that fits to Vr
 end
-
+fprintf('%s\n',Capture_folder);
 Rrho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRrho.mat'));
 Rho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRho.mat'));
 

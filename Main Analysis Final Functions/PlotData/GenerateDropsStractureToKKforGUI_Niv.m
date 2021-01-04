@@ -13,6 +13,7 @@ function DROPS=GenerateDropsStractureToKKforGUI_Niv(XLSfilename,expTypeInd,expTy
         
         %%%% Call to modified function of - DivJtoKK
         %%%% to generate DivJ and save it to the relevent file
+        fprintf('%s\n',Capture_folder);
         DivJtoKK(Capture_folder,ROI_folder);
         
         DROPS(j).Rrho=importdata(fullfile(Capture_folder,'Rho\CorrectedAvgRrho.mat'));

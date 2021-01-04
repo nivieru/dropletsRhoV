@@ -39,6 +39,7 @@ function DROPS=GenerateDropsStractureToKKforGUICommon_Niv(XLSfilename,expTypeInd
             end
 %             DROPS(j).Color=Col(expInd,:);
             DROPS(j).Color=getcolorfromindex(gca, Ind);%getColorForExpType(expInd(1));
+            fprintf('%s\n',Capture_folder);
             DROPS(j).DropSize=importdata(fullfile(Capture_folder,'Analysis parameters\DROP_radius.m'));
             DROPS(j).ActinNetworkRadius=importdata(fullfile(Capture_folder,'Analysis parameters\ACTIN_NETWORK_radius.m'));
             DROPS(j).CHUNK_radius=importdata(fullfile(Capture_folder,'Analysis parameters\CHUNK_radius.m'));
