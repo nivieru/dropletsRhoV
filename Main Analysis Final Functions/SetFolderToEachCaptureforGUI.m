@@ -16,7 +16,7 @@ elseif(channel==2)
     ChannelString='_C2';
 end
 
-Dir16=dir([slide_folder,'*tiff']);  %%% The movies here need to be 16bit
+Dir16=dir(fullfile(slide_folder,'*tiff'));  %%% The movies here need to be 16bit
 Size_Dir=size(Dir16);
 names_array={Dir16.name};
 movies_C0_channels=strfind(names_array,ChannelString);
